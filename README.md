@@ -1,7 +1,9 @@
 # Understanding Frontend
 
 ## Introduction
-Aggregation of questions and answers covering well-known topics about Frontend development.
+Aggregation of well-known topics about Frontend development.
+
+*This is still a work in progress.*
 
 ## Table of contents
 * [Acronymns](acronymn.md)
