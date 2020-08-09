@@ -35,20 +35,19 @@ Both **em** and **rem** are flexible, scalable units of measurements which are t
 
 ---
 
-### Result of selectors `.container` and `[class~=container]`?
+## Result of selectors `.container` and `[class~=container]`?
 
-### Answer
 The result is the same; both selections will return all elements with class `container`
 
 ---
 
-### Result of selector `[class*=container]`?
+## Result of selector `[class*=container]`?
 
 The selector will return all elements with class that contains the keyword `container`.
 
 ---
 
-### Repaint and Reflow?
+## Repaint and Reflow?
 
 Repaint occurs when visible changes are made to the element but does not affect it's layout. Reflow means re-calculating the positions and geometries of elements in the document, for the purpose of re-rendering part or all of the document.
 
