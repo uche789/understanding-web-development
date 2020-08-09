@@ -136,9 +136,9 @@ async function aMethod() {
 
 ## Immutable and mutable object
 
-Immuntable object is a object whose state cannot be modified after it has been created. Strings and numbers are immutable. Functions, arrays, classes and objects are mutable.
+An immuntable object is a object whose state cannot be modified after it has been created. Strings and numbers are immutable. Functions, arrays, classes and objects are mutable.
 
-Immutability should not be confused with variables declared using the `const` keyword. The reference of the constant is immutable however this does not mean that the value is immutable. Take the object below as an example:
+Immutability should not be confused with variables declared using the `const` keyword. The reference of the constant is immutable however, this does not mean that the value is immutable. Take the object below as an example:
 
 ```javascript
 const anObject = {

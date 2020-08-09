@@ -1,8 +1,14 @@
 # Network
 
-## HTTP.
+## HTTP
 
 HTTP stands for Hypertext Transfor Protocol. It is a top-level application protocol that exchanges information between a client (usually a browser) and a local or remote web server. 
+
+---
+
+## Differences between HTTP and HTTPS
+
+HTTP operated on port 80 where as HTTPS operates on port 443. While HTTP transfers data as plain text, HTTPS transfers data as encrypted text. HTTPS requires a valid SSL certificate issued by a certificate authority (CA). 
 
 ---
 
@@ -24,7 +30,7 @@ Latency is the response time of the content transfer from the client to the serv
 ---
 ## Race condition
 
-A race condition is an undesirable situation an attempt is made to perform two or more operations (network requests) at the same time.
+A race condition is an undesirable situation where an attempt is made to perform two or more operations (network requests) at the same time.
 
 ---
 

@@ -22,11 +22,6 @@ Cross-site scripting (XSS) is a web vunerability that allows attackers to inject
 
 Content Security Policy help mitigates attacks such as XXS and data injection by enabling the browser to know which domains are valid sources of executable scripts.
 
----
-
-## Difference between HTTP and HTTPS
-
-HTTP operated on port 80 where as HTTPS operates on port 443. While HTTP transfers data as plain text, HTTPS transfers data as encrypted text. HTTPS requires a valid SSL certificate issued by a certificate authority (CA). 
 
 
 
