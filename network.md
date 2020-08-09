@@ -1,72 +1,48 @@
 # Network
 
-### Question
-Explain HTTP.
+## HTTP.
 
-### Answer
 HTTP stands for Hypertext Transfor Protocol. It is a top-level application protocol that exchanges information between a client (usually a browser) and a local or remote web server. 
 
 ---
 
-### Question
-What are RESTful APIs and how are they used?
+## RESTful API
 
-### Answer
-
-A RESTful API is an application program interface (API) that uses HTTP requests to retrieve and update data via methods.
-
-REST stands for Representational state transfer and is a software architectural style for designing network applications.
+A RESTful API is an application program interface (API) that uses HTTP requests to retrieve and update data via methods. REST stands for Representational state transfer and is a software architectural style for designing network applications.
 
 ---
-### Question
-What is the ETag header and how is it used?
-
-### Answer
+## ETag header
 
 The ETag response header is an identifier for a specific version of a resource. This helps caches to be more efficient and saves bandwidth as the wbe server does not need to send a full response if the content is unchanged.
 
 ---
 
-### Question
-Explain Latency.
+## Latency
 
-### Answer
 Latency is the response time of the content transfer from the client to the server and back.
 
 ---
-## Question
-What is a race condition?
-
-### Answer
+## Race condition
 
 A race condition is an undesirable situation an attempt is made to perform two or more operations (network requests) at the same time.
 
 ---
 
-### Question
-What is CORS?
-
-### Answer
+## CORS
 
 CORS (Cross-origin Resource Sharing) is a mechanism that uses additional HTTP headers to give a web application with a different origin access to a specific resource.
 
 "preflighted" requests first send an HTTP request by the `OPTIONS` method to the resource on the other domain, to determine if the actual request is safe to send and to determine the options and/or requirements associated with a resource.
 
 ---
-### Question
-What does 10x HTTP response status code mean?
-
-### Answer
+## 10x HTTP response status codes
 
 10x HTTP response codes are used for informational responses.
 
 ---
-### Question
-What does 20x HTTP response status code mean?
+## 20x HTTP response status codes
 
-### Answer
-
-Responses were successful.
+10x HTTP response codes are used for successful or partially successful responses.
 
 **Common:**
 - `200` - Request succeeded.
@@ -75,10 +51,8 @@ Responses were successful.
 
 ---
 
-### Question
-What does 30x HTTP response status code mean?
+## 30x HTTP response status codes
 
-### Answer
 
 30x status codes are reserved for redirects.
 
@@ -88,9 +62,7 @@ What does 30x HTTP response status code mean?
 
 ---
 
-### Question
-What does 40x HTTP response status code mean?
-### Answer
+## 40x HTTP response status codes
 
 40x status codes are reserved for client error responses.
 
@@ -103,10 +75,8 @@ What does 40x HTTP response status code mean?
 
 ---
 
-### Question
-What does 50x HTTP response status code mean?
+## 50x HTTP response status codeS
 
-### Answer
 50x indicated server error.
 
 **Common:**

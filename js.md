@@ -1,9 +1,7 @@
 # Javascript
 
-### Question
-Explain `this`.
+## `this`
 
-### Answer
 The `this` keyword refers to the object it belongs to.
 - In a function, `this` refers to the global object.
 - In a method, `this` refers to the owner object.
@@ -13,18 +11,13 @@ The `this` keyword refers to the object it belongs to.
 
 ---
 
-### Question
-What is the difference between `map()` and `forEach()`
+## Difference between `map()` and `forEach()`
 
-### Answer
 `map()` creates a new array with the results of the function called for every element in the given array. `forEach()` iterates over every element in a given array and does not return anything.
 
 ---
 
-### Question
-What is the difference between `const`, `var` and `let` declarations?
-
-### Answer
+## Difference between `const`, `var` and `let` declarations
 
 * `const` - the variable cannot be redefined and cannot be changed through reassigment
 
@@ -71,10 +64,8 @@ console.log(x(c));
 ```
 
 ---
-### Question
-What is Hoisting?
+## Hoisting
 
-### Answer
 Variable declarations are moved to the top of the current scope.
 
 ```javascript
@@ -84,11 +75,8 @@ var x;
 
 ---
 
-### Question
+## AJAX request
 
-What is an AJAX request?
-
-### Answer
 AJAX (*Asynchronous JavaScript + XML*) is used to create ascyhronous web applications. Browsers have the `XMLHttpRequest` object which is used to make requests to a webserver. This allows you to update certains portions of a page without a full page reload.
 
 ```javascript
@@ -103,11 +91,7 @@ xhr.onreadystatechange = function () {
 ```
 ---
 
-### Question
-
-What is a promise?
-
-### Answer
+## Promise
 
 A `promise` object is the eventual completion resulting in success or failure of an asynchronous operation.
 
@@ -119,10 +103,8 @@ new Promise(function(resolve, reject) {
 
 ---
 
-### Question
-How would you handle multiple Promises?
+## Handling multiple Promises?
 
-### Answer
 The `Promise.all` function will return a single promise that fulfills once all the promises passed as iterable have been fulfilled.
 
 ```javascript
@@ -135,10 +117,8 @@ const results = Promise.all([promise1, promise2]).then(function (values) => {
 
 ---
 
-### Question
-What is the benefit of using `async`/`await`?
+## `async`/`await`?
 
-### Answer
 `async`/`await` was introduced in ES7 to simplify promises and keep code readable. An `await` expression pauses the execution of the async function until the promise has been resolved. 
 
 ```javascript
@@ -152,4 +132,18 @@ async function aMethod() {
 }
 ```
 
+---
 
+## Immutable and mutable object
+
+Immuntable object is a object whose state cannot be modified after it has been created. Strings and numbers are immutable. Functions, arrays, classes and objects are mutable.
+
+Immutability should not be confused with variables declared using the `const` keyword. The reference of the constant is immutable however this does not mean that the value is immutable. Take the object below as an example:
+
+```javascript
+const anObject = {
+  prop: ''
+}
+```
+
+`anObject` cannot be redeclared or reassigned, however, we can change the value of `prop`.

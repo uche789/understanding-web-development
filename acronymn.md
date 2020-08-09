@@ -46,8 +46,6 @@
 
 **IIFE** - Immediately Invoked Function Expression
 
-**ETag** - Entity tag
-
 **AJAX** - Asynchronous JavaScript and XML
 
 ---
@@ -73,10 +71,12 @@
 
 **CORS** - Cross-Origin Resource Sharing
 
-**JSON** - JavaScript Object Notation
+**ETag** - Entity tag
 
 ---
 ## Misc
+
+**JSON** - JavaScript Object Notation
 
 **CBA** - Component-based architecture
 
@@ -112,7 +112,7 @@
 
 **AMP** - Accelerated Mobile Pages
 
-**CSP** - Content Security Policy (CSP)
+**CSP** - Content Security Policy
 
 **XSS** - Cross-site scripting
 
@@ -124,6 +124,9 @@
 
 **CA** - Certificate Authority
 
-**WAF** - Web Application Firewal
+**WAF** - Web Application Firewall
 
 **DDoS** - Distributed denial-of-service
+
+**SOAP** - Simple Object Access Protocol
+
