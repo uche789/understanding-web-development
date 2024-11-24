@@ -9,13 +9,15 @@ The `this` keyword refers to the object it belongs to.
 - Methods like `call()` and `apply()` can refer this to any object.
 - The `bind()` method has its `this` keyword set to the provided value.
 
----
 
 ## Difference between `map()` and `forEach()`
 
 `map()` creates a new array with the results of the function called for every element in the given array. `forEach()` iterates over every element in a given array and does not return anything.
 
----
+## What does the array propery `reduce` do?
+
+TBP
+
 
 ## Difference between `const`, `var` and `let` declarations
 
@@ -66,14 +68,18 @@ console.log(x(c));
 ---
 ## Hoisting
 
-Variable declarations are moved to the top of the current scope.
+Hoisting is what happens when variable declarations are moved to the top of the current scope.
 
 ```javascript
-x = 5;
-var x;
+function run () {
+  function addTen() {
+    return x + 10;
+  }
+  var x = 5;
+}
 ```
+The variable `x` will be hoisted to the top of the `run` function.
 
----
 
 ## AJAX request
 
@@ -89,7 +95,6 @@ xhr.onreadystatechange = function () {
   }
 }
 ```
----
 
 ## Promise
 
@@ -101,7 +106,6 @@ new Promise(function(resolve, reject) {
 })
 ```
 
----
 
 ## Handling multiple Promises?
 
@@ -115,11 +119,10 @@ const results = Promise.all([promise1, promise2]).then(function (values) => {
 });
 ```
 
----
 
-## `async`/`await`?
+## `async`/`await`
 
-`async`/`await` was introduced in ES7 to simplify promises and keep code readable. An `await` expression pauses the execution of the async function until the promise has been resolved. 
+`async`/`await` was introduced in ES7 to simplify promises and keep code readable. The `async` keyword indicates that a function will perform asynchronous operations, while the `await` keyword pauses the execution of the async function until the promise it’s waiting for is resolved.
 
 ```javascript
 async function anAsyncFunc() {
@@ -132,7 +135,8 @@ async function aMethod() {
 }
 ```
 
----
+`async`/`async` eliminates the need for promise chaining or nested callbacks
+
 
 ## Immutable and mutable object
 
@@ -147,3 +151,36 @@ const anObject = {
 ```
 
 `anObject` cannot be redeclared or reassigned, however, we can change the value of `prop`.
+
+## Hashmaps in Javascript
+
+A hashmap (also known as a an associative array or an object), is a key-value data structure. In Javascript, a hashmap can be created using an object literal `{}`.
+
+For example:
+
+```javascript
+let map = {};
+
+map['key1'] = 'value 1';
+map['key2'] = 'value 2';
+
+// delete a key-value pair
+delete map['key1']
+```
+
+The `Map` object can also be used.
+
+```javascript
+cosnt map = new Map();
+
+
+map.set('key1', 'value1');
+map.set('key2', 'value2');
+
+if (map.has('key2')) {
+  // delete a key-value pair
+  map.delete('key1')
+}
+```
+
+Javascript handles **key collisions** (two or more keys have the same hash value) implictly, mean setting a new value for an existing key will override the old value. 

@@ -16,7 +16,12 @@
 
 **DOM** - Document Object Model
 
----
+**ARIA** - Accessible Rich Internet Applications
+
+**POUR** - Perscpecitve, Operable, Understanding, Robust
+
+**WCAG** - Web Content Accessibility Guidelines
+
 ## CSS
 
 **CSS** - Cascading Style Sheets
@@ -37,7 +42,7 @@
 
 **OOCSS** - Object-oriented CSS
 
----
+
 ## Javascript
 
 **ECMAScript (ES)** - European Computer Manufacturers Association Script
@@ -48,7 +53,7 @@
 
 **AJAX** - Asynchronous JavaScript and XML
 
----
+
 ## Network
 
 **HTTP** - Hypertext Transfer Protocol 
@@ -73,7 +78,22 @@
 
 **ETag** - Entity tag
 
----
+**SRI** - Subresource Integrity
+
+**DNSSEC** -  Domain Name System Security Extensions
+
+**CAA** - Certificate Authority Authorization
+
+**CA** - Certificate Authority
+
+**WAF** - Web Application Firewall
+
+**DDoS** - Distributed denial-of-service
+
+**SOAP** - Simple Object Access Protocol
+
+**MAC** - Media Access Control
+
 ## Misc
 
 **JSON** - JavaScript Object Notation
@@ -94,12 +114,6 @@
 
 **MEAN** - MongoDB, Express.js, Angular, Node.js
 
-**CTA** - Call-To-Action
-
-**UX/UI** - User experience / User Interface
-
-**GUI** - Graphical User Interface
-
 **CDN** - Content delivery Network
 
 **CMS** - Content Management System
@@ -108,25 +122,21 @@
 
 **WebGL** - Web Graphics Library
 
-**ARIA** - Accessible Rich Internet Applications
-
 **AMP** - Accelerated Mobile Pages
 
 **CSP** - Content Security Policy
 
 **XSS** - Cross-site scripting
 
-**SRI** - Subresource Integrity
 
-**DNSSEC** -  Domain Name System Security Extensions
+## Database
 
-**CAA** - Certificate Authority Authorization
+**ACID** - atomicity, consistency, isolation, durability
 
-**CA** - Certificate Authority
+## UX/UI
 
-**WAF** - Web Application Firewall
+**CTA** - Call-To-Action
 
-**DDoS** - Distributed denial-of-service
+**UX/UI** - User experience / User Interface
 
-**SOAP** - Simple Object Access Protocol
-
+**GUI** - Graphical User Interface

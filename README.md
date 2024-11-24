@@ -13,3 +13,4 @@ Aggregation of well-known topics about Frontend development.
 * [Typescript](ts.md)
 * [Network](network.md)
 * [Security](security.md)
+* [Computing](computing.md)
