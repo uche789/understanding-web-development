@@ -10,43 +10,71 @@ TCP stands for Transmission Control Protocol. TCP ensures that data is reaches i
 
 TCP/IP (Transmission Control Protocol/Internet Protocol) is a suite of communication protocols. It consists of four primarly layers: Application, Transport, Network and Data Link layers.
 
+### How it works
+1. The handshake process is initiated between the client and server to agree on how to communicate securely.
+2. The client send a message to the server, listing supported encryption methods and protocols.
+3. The server responds with its chosen encryption method and provide its SSL/TLS certificate.
+4. The client will verify the validity of the certificate and ensure that it was issued by a trusted Certificate Authority (CA).
+5. The Client and server exchange cryptographic keys using algorithms such as RSA, creating a shared session key for encryption.
+6. The client and server can now securely exchange data over the encrypted channel.
+
+*Handshake is the means of establishing the connection between client and server.*
+
+## Transport Layer Security (TLS)
+TLS is a cyptographic protocol used to provide secure communications over a computer network. It is typically used by HTTPS to secure web traffic and allows client and server applications to communicate securely over the Internet.
+
+TLS prevents attackers from stealing sensitive data, verifies server's identity using handshakes, and ensures that transmitted data has not been tampered with. 
+
+## Secure Socket Layer (SSL)
+SSL is a standard technology to establish encrypted data transfer between a server and a client (typically a web browser). SSL is used to prevent attackers from stealing sensitive information.
+
+## What is the difference between SSL and TLS?
+
+SSL is older with some security vunerabilities. TLS is the upgraded version of SSL with the security vunerabilities addressed.
+
+### Further reading(s)
+
+[What is an SSL certificate?](https://www.cloudflare.com/learning/ssl/what-is-an-ssl-certificate/)
+
 ## UDP
 
-UDP stands for user datagram Protocol.
+UDP stands for user datagram Protocol. UDP is a protocol for time-sensitive communication such as Domain Name System (DNS) lookups, playing videos, and gaming.
 
 ## When to use TCP and UDP
 
 TCP is ideal for direct communication where a reliable connection is needed, such as web browsing, email, text messaging, and file transfers. UDP is ideal for live and real-time data transmission where speed is more a priority.
 
+While TCP is slower than UDP, it transfers data more reliably.
+
 ## OSI model
 
 The Open Systems Interconnection (OSI) model describes 7 layers that computer systems use to communicate over a network.
 
-These are the seven layers:
-
-### 1. Application Layer
+### Layer 7: Application Layer
 
 The application layer is an abstract layer that ensure effective communication. 
 
-### 2. Presentation
+### Layer 6: Presentation
 
-TBP
+The presen
 
-### 4. Session
+### Layer 5: Session
 
-TBP
+The session layer manages the communication session between devices and ensures that the session is started, maintained, and ended properly.
 
-### 3. Transport Layer
+The session layer also fetches data from the transport layer and send data to the presentation layer.
 
-TBP 
-
-### 4. Network
+### Layer 4: Transport Layer
 
 TBP 
 
-### 6. Data Link
+### Layer 5: Network
 
-The Data Link layer is an second layer and it is responsible for the transfers of datagram between nodes or physical links in a network. It basically hides all the underlying handware complexies or physical layer from the layers above it. Examples of data link protocols are Ethernet, the IEEE 802.11 WiFi protocols, ATM and Frame Relay.
+The network layer is responsible for moving data packets between different networks. It decides which physical path the data will take. The network layer uses network addresses (typically Internet Protocol or IP addresses) to route packets.  
+
+### Layer 6: Data Link
+
+The data link layer is an second layer and it is responsible for the transfers of datagram between nodes or physical links in a network. It basically hides all the underlying handware complexies or physical layer from the layers above it. Examples of data link protocols are Ethernet, the IEEE 802.11 WiFi protocols, ATM and Frame Relay.
 
 Real-word examples includes the following:
 
@@ -57,13 +85,10 @@ In a Wi-Fi network, the Data Link layer controls how different devices share the
 
 *MAC addresses indentifies devices on the same network.* 
 
-### 7. Physical
+### Layer 7: Physical
 
 The physical layer (raw bits) is the first layer and it is commonly associated with physical connection between devices such as fiber optic cables, ethernet cables, wireless transmissions, and hubs and repeaters.
 
-## Client-server architecture
-
-TBP
 
 ## Differences between HTTP and HTTPS
 
@@ -77,7 +102,8 @@ A RESTful API is an application program interface (API) that uses HTTP requests 
 
 gRPC is a high performance Remote Procedure Call (RPC) that allows communication betweens services in and across data centers.
 
-### References:
+### Further reading(s)
+
 - [Remote procedural call](https://en.wikipedia.org/wiki/Remote_procedure_call)
 - [Introduction to gRPC video](https://youtu.be/njC24ts24Pg)
 
@@ -90,11 +116,40 @@ GraphQL is a query langiage for APIs and a runtime for fulfilling those queries 
 
 The ETag response header is an identifier for a specific version of a resource. This helps caches to be more efficient and saves bandwidth as the web server does not need to send a full response if the content is unchanged.
 
+### How it works?
+
+Client makes a request to the server
+
+```http
+GET /images/logo.png HTTP/1.1
+Host: example.com
+```
+
+Server sends response with ETag include
+
+```http
+HTTP/1.1 200 OK
+Host: example.com
+ETag: 123456efg
+Content-Type: image/png
+Content-Length: 1024
+```
+
+Client can make conditional request to the server by passing the ETag in the `If-None-Match` header 
+
+```http
+GET /images/logo.png HTTP/1.1
+Host: example.com
+If-None-Matc: 123456efg
+```
+
+If the resource has not been modified, the server with return status code **304 Not Modified**, indicating that the client can use the cached resource.
+
 ## Difference between Latency, Throughput, and Bandwidth
 
-Latency is the response time of the content transfer from the client to the server and back.
+Latency is the time it takes for content transfer from the client to the server and back. Latency is synonymous wth *delay*.
 
-Throughput is the amount of information that can be handled at a given time (for example, the number of http requests a web server can handle per second).
+Throughput is the amount of data that can be processed for a given time (for example, the number of http requests a web server can handle per second).
 
 Bandwidth is the maximum data volume of a network. Simply put, it indicates how much data in network can possible travel within a given period of time.
 
@@ -105,6 +160,10 @@ A race condition is an undesirable situation where an attempt is made to perform
 For example, if two or more services attempt to update the same record in the database simultaneously, one update may overwrite another, leading to data loss or inconsistency.
 
 Another real world example is two people try to withdraw money from the same bank account at the same time. 
+
+### Further reading(s)
+
+[Race condition](https://www.imperva.com/learn/application-security/race-condition/) 
 
 ## CORS
 
@@ -125,3 +184,25 @@ The HTTP `Access-Control-Allow-Credentials` header indicates whether credentials
 - `30x` status codes are reserved for redirects.
 - `40x` status codes are reserved for client error responses.
 - `50x` status codes indicated server error.
+
+## DDoS (Distributed Denial-of-Service)
+
+Distributed Denial-of-Service (DDoS) is a cyber-attack where an attacker floods a server with internet traffic, prevent the server to be used for its intended purpose and denying user access to connecting online services and sites.
+
+Race conditions can be exploited to perform DDoS attacks. In such cases, an attacker deliberately triggers a race condition to create a deadlock, exhausting computing resources and rendering the service unavailable.
+
+### Further reading(s)
+
+[Five Most Famous DDoS Attacks and Then Some](https://www.a10networks.com/blog/5-most-famous-ddos-attacks) 
+
+## What is a deadlock?
+
+In a computer program, a deadlock can occur when two or more processes are waiting for each other to release resources.
+
+## What does Idempotency mean?
+
+An HTTP method is considered idempotent if it produces the same response regardless of how many identical requests are made.
+
+All safe methods such as `GET` and `HEAD` are idemptonent. `PUT` and `DELETE` are idempotent because, after the first request that modifies or removes the resource, all subsequent requests will result in the same response without further changing the resource.       
+
+`POST` is not idemptonent.

@@ -53,6 +53,10 @@
 
 **AJAX** - Asynchronous JavaScript and XML
 
+**SSG** - Static Site Generation
+
+**SSR** - Server-side rendering
+
 
 ## Network
 
@@ -94,6 +98,7 @@
 
 **MAC** - Media Access Control
 
+
 ## Misc
 
 **JSON** - JavaScript Object Notation
@@ -120,9 +125,16 @@
 
 **CRUD** - Create, Read, Update, Delete
 
+**AMP** - Accelerated Mobile Pages
+
+**UX** User Experience
+
+**UI** User Interface
+
 **WebGL** - Web Graphics Library
 
-**AMP** - Accelerated Mobile Pages
+
+## Security
 
 **CSP** - Content Security Policy
 
@@ -133,10 +145,6 @@
 
 **ACID** - atomicity, consistency, isolation, durability
 
-## UX/UI
-
 **CTA** - Call-To-Action
-
-**UX/UI** - User experience / User Interface
 
 **GUI** - Graphical User Interface

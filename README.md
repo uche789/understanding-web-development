@@ -1,9 +1,8 @@
 # Understanding Frontend
 
 ## Introduction
-Aggregation of well-known topics about Frontend development.
 
-*This is still a work in progress.*
+This repository contains comprehensive documentation on web development and computing. The contents of this repository are aimed at both novice and experienced web developers.
 
 ## Table of contents
 * [Acronymns](acronymn.md)
@@ -12,5 +11,7 @@ Aggregation of well-known topics about Frontend development.
 * [Javascript](js.md)
 * [Typescript](ts.md)
 * [Network](network.md)
+* [System Design](system-design.md)
 * [Security](security.md)
 * [Computing](computing.md)
+* [Misc](misc.md)
