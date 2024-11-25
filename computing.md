@@ -53,7 +53,7 @@ def main():
 main()
 ```
 
-## What is a multithreading?
+## What is multithreading?
 Multithreading is a technique where multiple threads (smaller units of a process) run concurrently within a single process. Each thread shares the same memory space but can run independently. In short, the goal of multithreading is to run two things "alongside each other".
 
 Multithreading is different from thread pools, as the threads are managed explicitly by the programmer. A thread pool automatically handles the thread management, reusing threads to reduce the cost of frequent thread creation and destruction. 

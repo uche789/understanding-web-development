@@ -10,6 +10,16 @@ TCP stands for Transmission Control Protocol. TCP ensures that data is reaches i
 
 TCP/IP (Transmission Control Protocol/Internet Protocol) is a suite of communication protocols. It consists of four primarly layers: Application, Transport, Network and Data Link layers.
 
+## UDP
+
+UDP stands for user datagram Protocol. UDP is a protocol for time-sensitive communication such as Domain Name System (DNS) lookups, playing videos, and gaming.
+
+## When to use TCP and UDP
+
+TCP is ideal for direct communication where a reliable connection is needed, such as web browsing, email, text messaging, and file transfers. UDP is ideal for live and real-time data transmission where speed is more a priority.
+
+While TCP is slower than UDP, it transfers data more reliably.
+
 ### How it works
 1. The handshake process is initiated between the client and server to agree on how to communicate securely.
 2. The client send a message to the server, listing supported encryption methods and protocols.
@@ -36,16 +46,6 @@ SSL is older with some security vunerabilities. TLS is the upgraded version of S
 
 [What is an SSL certificate?](https://www.cloudflare.com/learning/ssl/what-is-an-ssl-certificate/)
 
-## UDP
-
-UDP stands for user datagram Protocol. UDP is a protocol for time-sensitive communication such as Domain Name System (DNS) lookups, playing videos, and gaming.
-
-## When to use TCP and UDP
-
-TCP is ideal for direct communication where a reliable connection is needed, such as web browsing, email, text messaging, and file transfers. UDP is ideal for live and real-time data transmission where speed is more a priority.
-
-While TCP is slower than UDP, it transfers data more reliably.
-
 ## OSI model
 
 The Open Systems Interconnection (OSI) model describes 7 layers that computer systems use to communicate over a network.
@@ -56,7 +56,7 @@ The application layer is an abstract layer that ensure effective communication.
 
 ### Layer 6: Presentation
 
-The presen
+TBP
 
 ### Layer 5: Session
 
