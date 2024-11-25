@@ -120,6 +120,13 @@ Reactive programming is a declarative programming paradigm that focuses on data 
 
 Reactive programming is beneficial for modern use cases like dynamic UIs and real-time data processing.
 
+### Further reading(s)
+[Reactive Extensions Library for JavaScript](https://rxjs.dev/guide/overview)
+
+## What is the difference between load testing and stress testing of an application?
+
+Load tests checks system with expected load conditions to see how well it performs under average or slightly above-average usage. Stress tests apply extreme load to your system to identify the point at which it fails due to high traffic and heavy usage.
+
 ## Agile vs Scrum vs Waterfall vs Kanban
 
 TBP

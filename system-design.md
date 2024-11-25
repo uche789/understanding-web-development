@@ -28,3 +28,13 @@ For example, a customer table for an ecommerce website is created with a field f
 ## Sharding
 
 TBP
+
+## Fault tolerance
+
+TBP
+
+## Load balancing
+
+TBP
+
+### Example with nginx
