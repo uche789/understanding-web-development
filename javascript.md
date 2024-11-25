@@ -183,4 +183,6 @@ if (map.has('key2')) {
 }
 ```
 
-Javascript handles **key collisions** (two or more keys have the same hash value) implictly, mean setting a new value for an existing key will override the old value. 
+Javascript handles **key collisions** (two or more keys have the same hash value) implictly. This means that setting a new value for an existing key will override the old value. 
+
+

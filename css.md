@@ -14,7 +14,7 @@ The root element represents the `<html>` tag of an HTML document and is accessib
 
 ## The difference between `rem`, `px` and `em` units
 
-The **rem** unit (also known as root em) is relative to `font-size` of the root element of the document. This mean that the root `font-size` of `16px` translates to `1rem`. 
+The **rem** unit (also known as root em) is relative to `font-size` of the root element of the document. This means that the root `font-size` of `16px` translates to `1rem`. 
 
 The **em** unit is relative to `font-size` of the nearest parent of element.
 

@@ -50,27 +50,54 @@ SSL is older with some security vunerabilities. TLS is the upgraded version of S
 
 The Open Systems Interconnection (OSI) model describes 7 layers that computer systems use to communicate over a network.
 
-### Layer 7: Application Layer
+### Layer 7: Application
 
-The application layer is an abstract layer that ensure effective communication. 
+The application layer is an abstraction layer that allows the user to directly communicate with the network through applications. The application contains communication protocols to allow data exchange. It is also responsible for presenting data in a format that is readable to the user and applications.
+
+Some of protocols used in the application layer include:
+- HTTP/HTTPS
+- SMTP/IMAP/POP3
+- FTP (File Transfer Protocol)
+- DNS (Domain Name System)
+- Telnet/SSH
+
+The application layer uses the functionalities of the presentation and session layer to provide seamless communication between the user and the network.
 
 ### Layer 6: Presentation
 
-TBP
+The presentation layer is responsible for translating data into a format suitable for software applications or network transmission. This layer handles tasks such as encryption and decryption, data compression, and data conversion, including encoding formats like ASCII and Unicode. (for example, encoding formats like ASCII and Unicode).
 
 ### Layer 5: Session
 
-The session layer manages the communication session between devices and ensures that the session is started, maintained, and ended properly.
+The session layer manages the communication session between devices and ensures that the session is started, maintained, and ended properly. It also fetches data from the transport layer and send data to the presentation layer.
 
-The session layer also fetches data from the transport layer and send data to the presentation layer.
+The session layer supports two types of communication:
+- Half-duplex: Data flows in one direction at a time.
+- Full-duplex: Data flows in both directions simultaneously.
 
-### Layer 4: Transport Layer
+Some of protocols used in the application layer include:
+- NetBIOS (Network Basic Input Output System)
+- RPC (Remote Procedure Call Protocol)
+- PAP (Password Authentication Protocol)
 
-TBP 
+
+### Layer 4: Transport
+
+The transport layer is responsible for ensuring that data is reliably and efficiently transmitted between devices across a network.
+
+The key protocols used in this layer are TCP and UDP.
 
 ### Layer 5: Network
 
-The network layer is responsible for moving data packets between different networks. It decides which physical path the data will take. The network layer uses network addresses (typically Internet Protocol or IP addresses) to route packets.  
+The network layer is responsible for moving data packets (chunks of data) between different networks. It decides which physical path the data packets will take. The network layer uses network addresses (typically Internet Protocol or IP addresses) to route packets.
+
+Some of the protocols used in network layer include:
+
+- IPv4/IPv6
+- IPSec ( Internet Protocol Security)
+- IGMP (Internet Group Management Protocol)
+- DDP (Datagram Delivery Protocol)
+- RIP (Routing Information Protocol)
 
 ### Layer 6: Data Link
 
@@ -85,9 +112,19 @@ In a Wi-Fi network, the Data Link layer controls how different devices share the
 
 *MAC addresses indentifies devices on the same network.* 
 
+Some protocols used in this layer include:
+- Ethernet
+- IEEE 802.11 WiFi protocols
+- ATM (Asynchronous Transfer Mode)
+- Frame Relay
+
 ### Layer 7: Physical
 
-The physical layer (raw bits) is the first layer and it is commonly associated with physical connection between devices such as fiber optic cables, ethernet cables, wireless transmissions, and hubs and repeaters.
+The physical layer (raw bits) is commonly associated with physical connection between devices such as fiber optic cables, ethernet cables, wireless transmissions, and hubs and repeaters.
+
+### Further reading(s)
+
+- [OSI model](https://en.wikipedia.org/wiki/OSI_model)
 
 
 ## Differences between HTTP and HTTPS
@@ -100,7 +137,7 @@ A RESTful API is an application program interface (API) that uses HTTP requests 
 
 ## gRPC
 
-gRPC is a high performance Remote Procedure Call (RPC) that allows communication betweens services in and across data centers.
+gRPC is a high performance Remote Procedure Call (RPC) implemented on top of HTTP/2. It allows communication betweens services in and across data centers.
 
 ### Further reading(s)
 

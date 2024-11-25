@@ -114,10 +114,12 @@ $square->draw();
 $triange->draw();
 ```
 
-## SCRUM & Agile
+## What is reactive programming?
 
-TBP
+Reactive programming is a declarative programming paradigm that focuses on data streams and propagation of changes. React programming relies on asynchronous logic to handle real-time changes to data, making it particular useful for applications that require dynamic and responsive behaviour.
 
-## Waterfall
+Reactive programming is beneficial for modern use cases like dynamic UIs and real-time data processing.
+
+## Agile vs Scrum vs Waterfall vs Kanban
 
 TBP
