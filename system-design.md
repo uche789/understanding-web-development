@@ -20,7 +20,7 @@ Database normalization is the process of organizing your data to reduce redundan
 
 For example, a customer table for an ecommerce website is created with a field for customer addresses. Since a customer can have multiple billing and shipping addresses, we will introduce redundancy to the table, resulting in update anomalies. The solution would be to create a separate table for customer addresses.
 
-### Resources
+### Further reading(s)
 - [Designing Data-Intersive Applications](https://www.amazon.de/-/en/Designing-Data-Intensive-Applications-Reliable-Maintainable/dp/1449373321)
 - [System Design Primer](https://github.com/donnemartin/system-design-primer)
 - [Scalability Harvard Web Development](https://youtu.be/-W9F__D3oY4?si=5YY_dLx8k3lf8VTM) by David Malan
@@ -80,6 +80,160 @@ Layer 7 load balancing operates based on application-level information such as H
 - **Adaptive Load Balancing:** distribute workload based on system performance metrics such as CPU usage, memory or latency.
 - **Consistent Hashing:** Often used in distributed caching systems, requests are mapped to servers in a way that minimizes disruptions when a server is added or removed.
 
-### Example with nginx
+### Load balancing using Nginx and Docker
+
+This is the file structure:
+
+```
+my-app/
+│
+├── docker-compose.yml
+├── Dockerfile
+├── server.js
+└── nginx/
+    └── default.conf
+```
+
+Create a `server.js` file:
+
+```javascript
+const express = require('express');
+const app = express();
+const HOST_NAME = '0.0.0.0';
+const POST_NUMBER = 3000;
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+app.get('/', (req, res) => {
+    res.send('testing');
+});
+
+app.listen(POST_NUMBER, HOST_NAME, () => {
+    console.log(`Server running at http://${HOST_NAME}:${POST_NUMBER}/`);
+});
+```
+
+Create `Dockerfile`:
+
+```Dockerfile
+# Use an official Node.js image as a base
+FROM node:21
+
+# Set the working directory
+WORKDIR /usr/src/app
+
+# Copy package.json and package-lock.json
+COPY package*.json ./
+
+# Install dependencies (if any, for this example, none are needed)
+RUN npm install
+
+# Copy the application code
+COPY . .
+
+# Expose the port the app runs on
+EXPOSE 3000
+
+# Command to run the application
+CMD ["node", "server.js"]
+```
+
+Create `docker-compose.yml` file:
+
+```yml
+services:
+  node_app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # container_name: node-app
+    expose:
+      - "3000"  # Expose port 3000 to other services but not to the host
+    networks:
+      - loadbalancing
+    deploy:
+      replicas: 3  # Run 3 instances of the node_app
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf  # Mount the Nginx config file
+    ports:
+      - "80:80"  # Expose Nginx to the host on port 80
+    depends_on:
+      - node_app  # Ensure Node.js starts before Nginx
+    networks:
+      - loadbalancing # Creates a custom network
+
+networks:
+  loadbalancing:
+    driver: bridge
+```
+
+Create `nginx/default.conf` file:
+
+```
+upstream node_app {
+    server node_app:3000;
+}
+
+server {
+    listen 80;
+    
+    location / {
+        # proxy_pass http://node_app:3000;  # Forward requests to the Node.js container
+
+        proxy_pass http://node_app;
+
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+}
+```
+
+Run the following commands to build and remove containers:
+
+```bash
+# Build the Docker images and start the containers:
+docker-compose up --build
+
+# Remove the containers after stopping them
+docker-compose down
+```
+
+
+## CAP Theorem
+
+CAP Theorem (also known as Brewer's Theorem) states that in the event of a network partition, a distributed system can only guarantee two of the following properties at a given time:
+
+- **Consistency (C):** Every read operation returns the most recent write, or an error.
+- **Availabilit (A):** Every request (read or write) to a non-failing node should receive a response, even if the data might not be up-to-date.
+- **Partial Intolerance (P):** The system continues to function even though there is a network partition that disruption the communication between nodes of a system.
+
+A system must choose whether it remains available (always responds to requests, possibly with stale data) or consistent (no stale reads). Partition tolerance is considered mandatory in real-world distributed systems.
+
+### Real-world example
+
+Imagine a system with three ATM machines connected to a bank database, where one or more ATMs experience total or partial failure due to network or hardware issues. A customer tries to withdraw 120 dollars from their account, which has a balance of 1000 dollars.
+
+The system must decide what to prioritize:
+- To maintain **consistency**, the system may prevent withdrawals to ensure the data remains the same until all ATMs are synchronized.
+- To maintain **availability**, the system may allow the withdrawal to proceed even if some ATMs are temporarily out of sync, ensuring that the customer receives a response, but potentially showing outdated balances.
+
+
+## Content Delivery Network (CDN)
+
+TBP
+
+### Push CDN vs Pull CDN
+
+TBP
+
+## ACID  (atomicity, consistency, isolation, durability)
 
 TBP

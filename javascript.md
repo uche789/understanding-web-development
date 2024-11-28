@@ -16,7 +16,14 @@ The `this` keyword refers to the object it belongs to.
 
 ## What does the array propery `reduce` do?
 
-TBP
+`reduce()` executes a **reducer** callback on each value in an array and returns an accumulated value as the result. This is useful for operations related to aggregation and summation of data.
+
+### Example
+
+```javascript
+const initialValue = 0;
+const sum = [1, 4, 6, 7].reduce((accumulator, currentValue) => prev + cur, initialValue); // value = 18
+```
 
 
 ## Difference between `const`, `var` and `let` declarations

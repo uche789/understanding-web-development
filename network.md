@@ -222,16 +222,6 @@ The HTTP `Access-Control-Allow-Credentials` header indicates whether credentials
 - `40x` status codes are reserved for client error responses.
 - `50x` status codes indicated server error.
 
-## DDoS (Distributed Denial-of-Service)
-
-Distributed Denial-of-Service (DDoS) is a cyber-attack where an attacker floods a server with internet traffic, prevent the server to be used for its intended purpose and denying user access to connecting online services and sites.
-
-Race conditions can be exploited to perform DDoS attacks. In such cases, an attacker deliberately triggers a race condition to create a deadlock, exhausting computing resources and rendering the service unavailable.
-
-### Further reading(s)
-
-[Five Most Famous DDoS Attacks and Then Some](https://www.a10networks.com/blog/5-most-famous-ddos-attacks) 
-
 ## What is a deadlock?
 
 In a computer program, a deadlock can occur when two or more processes are waiting for each other to release resources.
@@ -244,6 +234,6 @@ All safe methods such as `GET` and `HEAD` are idemptonent. `PUT` and `DELETE` ar
 
 `POST` is not idemptonent.
 
-## Wat is Head-of-Line blocking?
+## What is Head-of-Line blocking?
 
 Head-of-Line blocking is an undesirable situation in HTTP/1.1 and HTTP/2 over TCP, where a lost packet in the stream forces the entire stream to wait until the packet is retransmitted and received.
