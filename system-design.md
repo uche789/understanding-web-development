@@ -248,7 +248,7 @@ app.get('/', (req, res) => {
     res.send('testing');
 });
 
-app.listen(POST_NUMBER, HOST_NAME, () => {
+const server = app.listen(POST_NUMBER, HOST_NAME, () => {
     console.log(`Server running at http://${HOST_NAME}:${POST_NUMBER}/`);
 });
 
