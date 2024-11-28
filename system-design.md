@@ -225,6 +225,43 @@ The system must decide what to prioritize:
 - To maintain **consistency**, the system may prevent withdrawals to ensure the data remains the same until all ATMs are synchronized.
 - To maintain **availability**, the system may allow the withdrawal to proceed even if some ATMs are temporarily out of sync, ensuring that the customer receives a response, but potentially showing outdated balances.
 
+## What does Graceful shutdown mean?
+
+A graceful shutdown (also known as a graceful exit) describe the process of shutting down a system in a controlled manner, ensuring that all ongoing operations are completed or safely interrupted. This minimizes data loss, corruption, or service disruptions. It typically includes closing database connections, performing clean-up tasks, and finalizing requests.
+
+The advantages of a graceful shutdown includes:
+- Minimizing data loss, corruption, or service disruptions
+- Better user experience
+- Improved reliablity and availability of the system
+
+### Example of handing graceful shutdowns wwith Node.js
+
+Handling graceful shutdowns can be done by listening for termination signals such as `SIGINT` or `SIGTERM`.
+
+```javascript
+const express = require('express');
+const app = express();
+const HOST_NAME = '0.0.0.0';
+const POST_NUMBER = 3000;
+
+app.get('/', (req, res) => {
+    res.send('testing');
+});
+
+app.listen(POST_NUMBER, HOST_NAME, () => {
+    console.log(`Server running at http://${HOST_NAME}:${POST_NUMBER}/`);
+});
+
+process.on('SIGINT', () => {
+    server.close(() => {
+        console.log('closed server');
+    })
+});
+```
+
+### Further reading(s)
+
+https://www.geeksforgeeks.org/graceful-shutdown-in-distributed-systems-and-microservices/
 
 ## Content Delivery Network (CDN)
 
