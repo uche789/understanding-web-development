@@ -244,6 +244,6 @@ All safe methods such as `GET` and `HEAD` are idemptonent. `PUT` and `DELETE` ar
 
 `POST` is not idemptonent.
 
-### WHat is Head-of-Line blocking?
+## Wat is Head-of-Line blocking?
 
 Head-of-Line blocking is an undesirable situation in HTTP/1.1 and HTTP/2 over TCP, where a lost packet in the stream forces the entire stream to wait until the packet is retransmitted and received.
