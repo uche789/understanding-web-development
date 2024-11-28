@@ -243,3 +243,7 @@ An HTTP method is considered idempotent if it produces the same response regardl
 All safe methods such as `GET` and `HEAD` are idemptonent. `PUT` and `DELETE` are idempotent because, after the first request that modifies or removes the resource, all subsequent requests will result in the same response without further changing the resource.       
 
 `POST` is not idemptonent.
+
+### WHat is Head-of-Line blocking?
+
+Head-of-Line blocking is an undesirable situation in HTTP/1.1 and HTTP/2 over TCP, where a lost packet in the stream forces the entire stream to wait until the packet is retransmitted and received.

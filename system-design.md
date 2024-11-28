@@ -27,14 +27,42 @@ For example, a customer table for an ecommerce website is created with a field f
 
 ## Sharding
 
-TBP
+Sharding is a design pattern for horizontally partitioning data across separate database server instances, known as shards, to enhance scalability and performance.
+
+### Further reading(s)
+- [Shard (database architecture)](https://en.wikipedia.org/wiki/Shard_(database_architecture))
+- [Sharding](https://www.mongodb.com/docs/manual/sharding/#:~:text=Sharding%20is%20a%20method%20for,capacity%20of%20a%20single%20server.)
 
 ## Fault tolerance
 
-TBP
+Fault tolerance refers to the design of a system to tolerate flaws and handle errors in a way that allows it to continue functioning as expected, possibly at a reduced level of performance, rather than experiencing a complete failure. Fault tolerance is essential for systems that require high reliability and availability, as it enables them to continue functioning correctly even when components fail or errors occur.
 
 ## Load balancing
 
-TBP
+Load balancing is the distribution of incoming network traffic or workload across multiple instances to ensure high availability and maximize uptime. Load balancing not only ensures availability but also optimizes resource utilization and system performance.
+
+Load balancing can be performed at the Transport Layer (Layer 4) and the Application Layer (Layer 7) of the OSI model.
+
+### Layer 4 (Transport Layer) load balancers
+
+Layer 4 load balancing operates based on network information such as IP addresses and TCP/UDP port numbers. It does not inspect the contents of the packets being delivered.
+
+### Layer 7 (Application Layer) load balancers
+
+Layer 7 load balancing operates based on application-level information such as HTTP headers, URLs, or cookies, allowing for more granular traffic distribution based on content.
+
+### Load balancer techniques
+
+- **Round robin:** distribute traffic to a list of servers in a rotation.
+- **Weighted round:** distribute more traffic to servers with higher weights or higher traffic capacity.
+- **Least connections:** direct traffic to servers with the least active connections.
+- **IP Hash:** use a hash of the client's IP to determine which server will receive the request. This ensure that a server is consistently assigned to a given client.
+- **Random:** randomly direct traffic to servers of equal capacity.
+- **Geolocation-Based:** direct traffic to servers closer to the client to improve latency and user experience.
+- **URL Hashing:** direct traffic to a server based on the hash of a URL.
+- **Adaptive Load Balancing:** distribute workload based on system performance metrics such as CPU usage, memory or latency.
+- **Consistent Hashing:** Often used in distributed caching systems, requests are mapped to servers in a way that minimizes disruptions when a server is added or removed.
 
 ### Example with nginx
+
+TBP
