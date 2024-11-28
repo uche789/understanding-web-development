@@ -29,13 +29,30 @@ For example, a customer table for an ecommerce website is created with a field f
 
 Sharding is a design pattern for horizontally partitioning data across separate database server instances, known as shards, to enhance scalability and performance.
 
+### Example
+
+TBP
+
 ### Further reading(s)
 - [Shard (database architecture)](https://en.wikipedia.org/wiki/Shard_(database_architecture))
 - [Sharding](https://www.mongodb.com/docs/manual/sharding/#:~:text=Sharding%20is%20a%20method%20for,capacity%20of%20a%20single%20server.)
+- [Database Sharding – System Design](https://www.geeksforgeeks.org/database-sharding-a-system-design-concept)
 
 ## Fault tolerance
 
 Fault tolerance refers to the design of a system to tolerate flaws and handle errors in a way that allows it to continue functioning as expected, possibly at a reduced level of performance, rather than experiencing a complete failure. Fault tolerance is essential for systems that require high reliability and availability, as it enables them to continue functioning correctly even when components fail or errors occur.
+
+### Techniques to improve fault tolerance
+
+- **Redundancy:** Replication data or resources across multiple systems and locations to ensure high availaibity and reliability.
+- **Fail over:** Switch to backup system or component when the primary system fails.
+- **Replication:** Replicate data across multiple databases (database replication) and create multiple instances of the same application (server replication).
+- **Checkpointing and Rollback**
+- **Error Detection and Correction:** Self-healing system, parity checks and check sums.
+- **Load balancing**
+- **Decoupling and Isolation**
+- **Geographic Distribution**
+- **Graceful Degradation:** Designing a system to maintain partial functionality or essential services, even when a majority of it is inoperative or has limited functionality.
 
 ## Load balancing
 
