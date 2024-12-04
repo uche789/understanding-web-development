@@ -25,18 +25,11 @@ For example, a customer table for an ecommerce website is created with a field f
 - [System Design Primer](https://github.com/donnemartin/system-design-primer)
 - [Scalability Harvard Web Development](https://youtu.be/-W9F__D3oY4?si=5YY_dLx8k3lf8VTM) by David Malan
 
-## Sharding
+## When to use sharding and replication
 
-Sharding is a design pattern for horizontally partitioning data across separate database server instances, known as shards, to enhance scalability and performance.
+Sharding is ideal for handling large volumes of data while ensuring fast query performance, provided the queries are designed to target specific shards. However, sharding can introduce complexity, such as shard management and cross-shard queries.
 
-### Example
-
-TBP
-
-### Further reading(s)
-- [Shard (database architecture)](https://en.wikipedia.org/wiki/Shard_(database_architecture))
-- [Sharding](https://www.mongodb.com/docs/manual/sharding/#:~:text=Sharding%20is%20a%20method%20for,capacity%20of%20a%20single%20server.)
-- [Database Sharding – System Design](https://www.geeksforgeeks.org/database-sharding-a-system-design-concept)
+On the other hand, replication is better suited for achieving high availability and enhancing the read performance of your database server. Replication does not necessarily improve write performance and can introduce latency for write operations, as changes need to be propagated to all replicas.
 
 ## Fault tolerance
 
@@ -206,7 +199,6 @@ docker-compose up --build
 docker-compose down
 ```
 
-
 ## CAP Theorem
 
 CAP Theorem (also known as Brewer's Theorem) states that in the event of a network partition, a distributed system can only guarantee two of the following properties at a given time:
@@ -265,12 +257,49 @@ https://www.geeksforgeeks.org/graceful-shutdown-in-distributed-systems-and-micro
 
 ## Content Delivery Network (CDN)
 
-TBP
+Content Delivery Network (CDN) is a distributed network of servers located geographically close to clients. These servers cache and deliver content (such as images, videos, scripts, and other static files) to users, reducing latency and improving website performance.
 
-### Push CDN vs Pull CDN
-
-TBP
+There are two types of CDNs: Push CDNs and Pull CDNs.
+- **Push CDNs:** In a Push CDN, resources are proactively uploaded to the CDN servers from the original web server. The URLs for the resources must be updated to point to the files stored on the CDN. Push CDNs are best suited for resources that change infrequently and are less commonly used for dynamic content due to the manual effort required for updates.
+- **Pull CDNs:** In a Pull CDN, resources remain stored on the original web server, and the CDN fetches (or "pulls") the resources when users request them. The CDN then caches the fetched resources for future requests. Pull CDNs do not require manual uploads, making them more suitable for websites with dynamic or frequently updated content, as they automatically stay in sync with the original server.
 
 ## ACID  (atomicity, consistency, isolation, durability)
 
+ACID represents the four properties that define a database transaction, ensuring data integrity and validity even in the presence of errors, system crashes, or power outages.
+
+- **Atomicity:** Each CRUD statement in a transaction is treated as a single unit; if any statement in the transaction fails to execute, the whole transaction fails, and the database remains unchanged.
+- **Consistency:** Transactions are predictable and guarantee that changes transition the database from one valid state to another while maintaining defined rules and constraints.
+- **Isolation:** Concurrent transactions occur in isolation and do not interfere with each other, ensuring the integrity of each transaction.
+- **Durability:** Changes successfully executed by transactions are persisted and remain permanent, even in the event of a system failure.
+
+### Further reading(s)
+
+https://en.wikipedia.org/wiki/ACID
+
+## Eventual Vs immediate consistency
+
+**Eventual consistency** in distributed systems is a consistency model that ensures high availability by allowing temporary discrepancies in data visibility across nodes. The system guarantees that, given enough time without new updates, all replicas will eventually converge to the same state. This model is suitable when the most current data does not need to be immediately visible to the client.
+
+**Immediate consistency** is a consistency model that ensures changes are immediately visible to all clients across the system. This requires all updates to be propagated to all replicas before any client can see the change, introducing higher latency and reduced availability compared to eventual consistency.
+
+
+## Optimizing database queries
+
 TBP
+
+### Further reference
+
+https://www.youtube.com/watch?v=BHwzDmr6d7s
+
+## Sharding
+
+Sharding is a design pattern for horizontally partitioning data across separate database server instances, known as shards, to enhance scalability and performance.
+
+### Example
+
+TBP
+
+### Further reading(s)
+- [Shard (database architecture)](https://en.wikipedia.org/wiki/Shard_(database_architecture))
+- [Sharding](https://www.mongodb.com/docs/manual/sharding/#:~:text=Sharding%20is%20a%20method%20for,capacity%20of%20a%20single%20server.)
+- [Database Sharding – System Design](https://www.geeksforgeeks.org/database-sharding-a-system-design-concept)
