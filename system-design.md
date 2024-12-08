@@ -14,23 +14,6 @@ A Single Point of Failure (SPOF) is a component of a system which, if it fails, 
 
 Single Point of Failures are flaws in architecture design that can be mitigated by introducing redundancy for critical components, as well as implementing backups or failover mechanisms.
 
-## What is Database normalization?
-
-Database normalization is the process of organizing your data to reduce redundancy and improve data integrity.
-
-For example, a customer table for an ecommerce website is created with a field for customer addresses. Since a customer can have multiple billing and shipping addresses, we will introduce redundancy to the table, resulting in update anomalies. The solution would be to create a separate table for customer addresses.
-
-### Further reading(s)
-- [Designing Data-Intersive Applications](https://www.amazon.de/-/en/Designing-Data-Intensive-Applications-Reliable-Maintainable/dp/1449373321)
-- [System Design Primer](https://github.com/donnemartin/system-design-primer)
-- [Scalability Harvard Web Development](https://youtu.be/-W9F__D3oY4?si=5YY_dLx8k3lf8VTM) by David Malan
-
-## When to use sharding and replication
-
-Sharding is ideal for handling large volumes of data while ensuring fast query performance, provided the queries are designed to target specific shards. However, sharding can introduce complexity, such as shard management and cross-shard queries.
-
-On the other hand, replication is better suited for achieving high availability and enhancing the read performance of your database server. Replication does not necessarily improve write performance and can introduce latency for write operations, as changes need to be propagated to all replicas.
-
 ## Fault tolerance
 
 Fault tolerance refers to the design of a system to tolerate flaws and handle errors in a way that allows it to continue functioning as expected, possibly at a reduced level of performance, rather than experiencing a complete failure. Fault tolerance is essential for systems that require high reliability and availability, as it enables them to continue functioning correctly even when components fail or errors occur.
@@ -263,6 +246,12 @@ There are two types of CDNs: Push CDNs and Pull CDNs.
 - **Push CDNs:** In a Push CDN, resources are proactively uploaded to the CDN servers from the original web server. The URLs for the resources must be updated to point to the files stored on the CDN. Push CDNs are best suited for resources that change infrequently and are less commonly used for dynamic content due to the manual effort required for updates.
 - **Pull CDNs:** In a Pull CDN, resources remain stored on the original web server, and the CDN fetches (or "pulls") the resources when users request them. The CDN then caches the fetched resources for future requests. Pull CDNs do not require manual uploads, making them more suitable for websites with dynamic or frequently updated content, as they automatically stay in sync with the original server.
 
+## Eventual vs immediate consistency
+
+**Eventual consistency** in distributed systems is a consistency model that ensures high availability by allowing temporary discrepancies in data visibility across nodes. The system guarantees that, given enough time without new updates, all replicas will eventually converge to the same state. This model is suitable when the most current data does not need to be immediately visible to the client.
+
+**Immediate consistency** is a consistency model that ensures changes are immediately visible to all clients across the system. This requires all updates to be propagated to all replicas before any client can see the change, introducing higher latency and reduced availability compared to eventual consistency.
+
 ## ACID  (atomicity, consistency, isolation, durability)
 
 ACID represents the four properties that define a database transaction, ensuring data integrity and validity even in the presence of errors, system crashes, or power outages.
@@ -275,13 +264,6 @@ ACID represents the four properties that define a database transaction, ensuring
 ### Further reading(s)
 
 https://en.wikipedia.org/wiki/ACID
-
-## Eventual vs immediate consistency
-
-**Eventual consistency** in distributed systems is a consistency model that ensures high availability by allowing temporary discrepancies in data visibility across nodes. The system guarantees that, given enough time without new updates, all replicas will eventually converge to the same state. This model is suitable when the most current data does not need to be immediately visible to the client.
-
-**Immediate consistency** is a consistency model that ensures changes are immediately visible to all clients across the system. This requires all updates to be propagated to all replicas before any client can see the change, introducing higher latency and reduced availability compared to eventual consistency.
-
 
 ## Optimizing database queries
 
@@ -296,7 +278,7 @@ https://en.wikipedia.org/wiki/ACID
 - Schedule large queries to run during off-peak hours to minimize system load.
 
 Create Indexes on fields frequently used to in queries. Indexes allow the database to retrieve data faster and speeds up execution 
-performance, expecially in the WHERE clause, JOIN conditions, GROUP BY, ORDER BY and frequent lookups (such as unique identifiers).
+performance, expecially in the `WHERE` clause, `JOIN` conditions, `GROUP BY`, `ORDER BY` and frequent lookups (such as unique identifiers).
 
 ### Further reference
 
@@ -314,3 +296,20 @@ Sharding is a design pattern for horizontally partitioning data across separate 
 - [Shard (database architecture)](https://en.wikipedia.org/wiki/Shard_(database_architecture))
 - [Sharding](https://www.mongodb.com/docs/manual/sharding/#:~:text=Sharding%20is%20a%20method%20for,capacity%20of%20a%20single%20server.)
 - [Database Sharding – System Design](https://www.geeksforgeeks.org/database-sharding-a-system-design-concept)
+
+## When to use sharding and replication
+
+Sharding is ideal for handling large volumes of data while ensuring fast query performance, provided the queries are designed to target specific shards. However, sharding can introduce complexity, such as shard management and cross-shard queries.
+
+On the other hand, replication is better suited for achieving high availability and enhancing the read performance of your database server. Replication does not necessarily improve write performance and can introduce latency for write operations, as changes need to be propagated to all replicas.
+
+## What is Database normalization?
+
+Database normalization is the process of organizing your data to reduce redundancy and improve data integrity.
+
+For example, a customer table for an ecommerce website is created with a field for customer addresses. Since a customer can have multiple billing and shipping addresses, we will introduce redundancy to the table, resulting in update anomalies. The solution would be to create a separate table for customer addresses.
+
+### Further reading(s)/learning
+- [Designing Data-Intersive Applications](https://www.amazon.de/-/en/Designing-Data-Intensive-Applications-Reliable-Maintainable/dp/1449373321)
+- [System Design Primer](https://github.com/donnemartin/system-design-primer)
+- [Scalability Harvard Web Development](https://youtu.be/-W9F__D3oY4?si=5YY_dLx8k3lf8VTM) by David Malan
