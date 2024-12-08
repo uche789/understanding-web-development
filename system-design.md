@@ -276,7 +276,7 @@ ACID represents the four properties that define a database transaction, ensuring
 
 https://en.wikipedia.org/wiki/ACID
 
-## Eventual Vs immediate consistency
+## Eventual vs immediate consistency
 
 **Eventual consistency** in distributed systems is a consistency model that ensures high availability by allowing temporary discrepancies in data visibility across nodes. The system guarantees that, given enough time without new updates, all replicas will eventually converge to the same state. This model is suitable when the most current data does not need to be immediately visible to the client.
 
@@ -285,7 +285,18 @@ https://en.wikipedia.org/wiki/ACID
 
 ## Optimizing database queries
 
-TBP
+- Select only the specific columns you need; avoid using SELECT *.
+- Use `LIMIT` to preview the data efficiently.
+- Indexing `JOIN` columns can improve performance and speed up the execution process.
+- In the `WHERE` clause, use **SARGable** (Search Argument Able) queries to leverage Indexes effectively:
+- Avoid using functions, e.g., `WHERE YEAR(order_date) >= 2009`.
+- Use direct comparisons, e.g., `WHERE order_date >= '2020-09-30'`.
+- Create a computed column or a function-based index if supported by the database engine.
+- When using wildcards in the WHERE clause, place them at the end of the phrase (LIKE 'abc%') to avoid wide searches.
+- Schedule large queries to run during off-peak hours to minimize system load.
+
+Create Indexes on fields frequently used to in queries. Indexes allow the database to retrieve data faster and speeds up execution 
+performance, expecially in the WHERE clause, JOIN conditions, GROUP BY, ORDER BY and frequent lookups (such as unique identifiers).
 
 ### Further reference
 
@@ -297,7 +308,7 @@ Sharding is a design pattern for horizontally partitioning data across separate 
 
 ### Example
 
-TBP
+[Scaling Up SQLite: A Comprehensive Guide to Sharding with Python](https://code.likeagirl.io/scaling-up-sqlite-a-comprehensive-guide-to-sharding-with-python-acf34ee0d634)
 
 ### Further reading(s)
 - [Shard (database architecture)](https://en.wikipedia.org/wiki/Shard_(database_architecture))
