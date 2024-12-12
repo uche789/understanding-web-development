@@ -123,9 +123,18 @@ Reactive programming is beneficial for modern use cases like dynamic UIs and rea
 ### Further reading(s)
 [Reactive Extensions Library for JavaScript](https://rxjs.dev/guide/overview)
 
-## What is the difference between load testing and stress testing of an application?
+## What is dynamic programming?
+Dynamic programming is a method of breaking down problems into sub problems and storing the solution to optimize time and space complexity, typically using memoization or tabulation.
 
-Load tests checks system with expected load conditions to see how well it performs under average or slightly above-average usage. Stress tests apply extreme load to your system to identify the point at which it fails due to high traffic and heavy usage.
+### Memoization (Top-Down)
+Storing results of subproblems in a table to avoid recomputation. This is done recursively.
+
+### Tabulation (Bottom-Up)
+Building solutions iteratively from smaller subproblems to larger ones.
+
+### Further readinsg(s)
+- [Real-world Use Cases of Dynamic Programming](https://hackernoon.com/real-world-use-cases-of-dynamic-programming)
+- [What is Dynamic Programming? Working, Algorithms, and Examples](https://www.spiceworks.com/tech/devops/articles/what-is-dynamic-programming/)
 
 ## Agile vs Scrum vs Waterfall vs Kanban
 

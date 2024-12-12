@@ -4,16 +4,12 @@
 
 Typescript is a superset of Javascript, meaning all the features of ECMAScript are available in Typescript. Typescript allows type-checking, which will reduce the risk of errors in larger projects.
 
----
-
 ## Access modifiers `public`, `private`, `protected`, and `readonly`
 
 * `public` - the property or method is only accessible internally or externally
 * `private` - the property or method is only accessible internally
 * `protected` - the property and method is accessed within the class and or any class that extends it 
 * `readonly` - the property cannot be reassigned after initialization. Typescript will throw a console error
-
----
 
 ## `abstract` keyword
 
@@ -24,8 +20,6 @@ abstract class User {
   abstract doWork(): void;
 }
 ```
-
----
 
 ## `static` keyword do
 
@@ -57,8 +51,6 @@ Note that you cannot access non-static properties and methods within a static me
 Helper.key //throws an error
 ```
 
----
-
 ## Usuage of `?` in the definition of a property in the interface?
 
 `?` is used to mark the property as optional. 
@@ -70,8 +62,6 @@ interface Properties {
 }
 ```
 
----
-
 ## Symbols
 
 Symbols are unique, immutable identifiers that can be used as object keys. 
@@ -81,7 +71,6 @@ const key = Symbol('id');
 const anObject = {};
 anObject[key] = 'aValue';
 ```
----
 
 ## Decorator
 

@@ -1,6 +1,6 @@
 # Javascript
 
-## `this`
+## What does the `this` keyword refer to?
 
 The `this` keyword refers to the object it belongs to.
 - In a function, `this` refers to the global object.
@@ -9,8 +9,7 @@ The `this` keyword refers to the object it belongs to.
 - Methods like `call()` and `apply()` can refer this to any object.
 - The `bind()` method has its `this` keyword set to the provided value.
 
-
-## Difference between `map()` and `forEach()`
+## What is the difference between `map()` and `forEach()`?
 
 `map()` creates a new array with the results of the function called for every element in the given array. `forEach()` iterates over every element in a given array and does not return anything.
 
@@ -25,8 +24,7 @@ const initialValue = 0;
 const sum = [1, 4, 6, 7].reduce((accumulator, currentValue) => prev + cur, initialValue); // value = 18
 ```
 
-
-## Difference between `const`, `var` and `let` declarations
+## What is the difference between `const`, `var` and `let` variable declarations?
 
 * `const` - the variable cannot be redefined and cannot be changed through reassigment
 
@@ -72,7 +70,6 @@ console.log(x(b));
 console.log(x(c));
 ```
 
----
 ## Hoisting
 
 Hoisting is what happens when variable declarations are moved to the top of the current scope.
@@ -113,7 +110,6 @@ new Promise(function(resolve, reject) {
 })
 ```
 
-
 ## Handling multiple Promises?
 
 The `Promise.all` function will return a single promise that fulfills once all the promises passed as iterable have been fulfilled.
@@ -125,7 +121,6 @@ const results = Promise.all([promise1, promise2]).then(function (values) => {
   // do something here
 });
 ```
-
 
 ## `async`/`await`
 
@@ -157,7 +152,14 @@ const anObject = {
 }
 ```
 
-`anObject` cannot be redeclared or reassigned, however, we can change the value of `prop`.
+`anObject` cannot be redeclared or reassigned, however, we can change the value of `prop`. When an object is created, memory is allocated for it, and the variable `anObject` stores a reference to that object in memory.
+
+JavaScript automatically handles memory allocation and deallocation through garbage collection, which removes objects that are no longer referenced.
+
+## What is the V8 engine?
+The V8 engine is built using C++ to execute JavaScript on a machine. It converts JavaScript into machine code using techniques like JIT compilation, which optimizes the execution of JavaScript for better performance.
+
+The V8 engine powers Google Chrome and Node.js, making it a critical component for web browsers and server-side JavaScript execution.
 
 ## Hashmaps in Javascript
 

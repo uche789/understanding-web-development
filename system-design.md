@@ -1,4 +1,65 @@
-# System design
+# System Design
+
+This page cover all topics related to system design.
+
+## Distributed systems
+
+Distributed systems are network of computers that work together as a single unit and communicate with one another to process information.
+
+Some key characteristics of a distributed system are:
+- Communication
+- Availability
+- Fault tolerance
+- Shared goal
+- Resource sharing
+- Concurrency
+- Geographical distribution
+
+Examples of distrubuted systems include:
+- Content Delivery Networks (CDNs)
+- Microservices
+- Client-server architecture
+- Distributed dtabases
+- Cloud computing networks
+- The internet
+
+## Microservices
+
+Microservices are independent, deployable services that are responsible to perform a specific business function or task within a distributed system.
+
+Benefits of microservices include:
+- Decoupling
+- Flexibility
+- Scalability
+- Ease of Deployment
+- Fault isolation
+- Technology Agnostic
+- Independence
+- Single Responsibility
+- Decentralization: _Responsibility for data, logic, and other components is decentralized across microservices, promoting modularity._
+- Communication: _Microservices communicate with each other through APIs, often using lightweight protocols like HTTP or messaging systems._
+
+### Use case
+- An **e-commerce application** could have separate microservices to handle authentication, orders, products, and fulfillment.
+- A **ride-sharing app** could have separate microservices for rider matching, payment processing, and ride tracking.
+
+## Message brokers
+
+Message brokers are middleware systems used in distributed systems to send, recieve and process information between applications or services. A message broker typically involves provider (node sending information) and consumers (node recieving information).
+
+Message brokers like RabbitMQ, Apache Kafka, Redis, or ActiveMQ help decouple systems, ensuring reliable and scalable communication in distributed architectures.
+
+Key functions of a message brokers include:
+- **Validation, storing, routing, and reliable delivery of a message** to the appropriate destination.
+- **Message Queuing:** Stores messages temporarily to ensure delivery, even if the consumer is unavailable or slow to process them.
+- **Load Balancing:** Distributes messages across multiple consumers to balance the workload.
+- **Publish/Subscribe model:** Supports sending messages to multiple consumers subscribed to a topic.
+
+Benefits of message brokers include:
+- **Decoupling:** Producers and consumers don’t need to know about each other’s implementation.
+- **Fault tolerance:** Ensures messages aren't lost if a consumer or producer fails temporarily
+- **Asynchronous Processing**
+- **Scalability:** Simplifies adding more producers or consumers.
 
 ## Client-server architecture
 
@@ -252,6 +313,42 @@ There are two types of CDNs: Push CDNs and Pull CDNs.
 
 **Immediate consistency** is a consistency model that ensures changes are immediately visible to all clients across the system. This requires all updates to be propagated to all replicas before any client can see the change, introducing higher latency and reduced availability compared to eventual consistency.
 
+## What is the difference between load testing and stress testing of an application?
+
+Load tests checks system with expected load conditions to see how well it performs under average or slightly above-average usage. Stress tests apply extreme load to your system to identify the point at which it fails due to high traffic and heavy usage.
+
+## What is a relational database?
+
+A relational database is a type of database that organizes data into tables with rows and columns, where the entities can be related to one another through relationships, often using primary and foreign keys.
+
+Examples of relational databases include:
+- PostgreSQL
+- SQLite
+- MySQL
+- MariaDB (a fork of MySQL)
+
+## What is a NoSql database?
+
+NoSQL is a type of database that stores data in various formats, such as key-value pairs, documents, wide-column stores, or graphs.
+
+Examples of NoSql databases include:
+- **MongoDB:** A document-based NoSQL database.
+- **CouchDB:** Another document-based NoSQL database that uses JSON for storing data.
+- **Redis:** A key-value store known for its in-memory data processing.
+- **etcd:** A key-value store commonly used in distributed systems for configuration management and service discovery.
+
+## When should you use NoSQL or a relational database?
+
+A relational database is ideal for the following:
+- Structured data, where relationships need to be clearly defined.
+- The need to perform complex queries, such as joins across multiple tables.
+- Data integrity and validation is a priority (e.g., compliance with ACID principles: Atomicity, Consistency, Isolation, Durability).
+
+A NoSQL database is ideal for the following:
+- Non-structured or semi-structured data, such as JSON or hierarchical data.
+- Applications requiring high write performance or eventual consistency, such as real-time analytics, caching, or logging.
+- Scenarios requiring horizontal scaling to handle massive amounts of data or traffic.
+
 ## ACID  (atomicity, consistency, isolation, durability)
 
 ACID represents the four properties that define a database transaction, ensuring data integrity and validity even in the presence of errors, system crashes, or power outages.
@@ -297,19 +394,19 @@ Sharding is a design pattern for horizontally partitioning data across separate 
 - [Sharding](https://www.mongodb.com/docs/manual/sharding/#:~:text=Sharding%20is%20a%20method%20for,capacity%20of%20a%20single%20server.)
 - [Database Sharding – System Design](https://www.geeksforgeeks.org/database-sharding-a-system-design-concept)
 
-## When to use sharding and replication
+## When should you use sharding and replication?
 
 Sharding is ideal for handling large volumes of data while ensuring fast query performance, provided the queries are designed to target specific shards. However, sharding can introduce complexity, such as shard management and cross-shard queries.
 
 On the other hand, replication is better suited for achieving high availability and enhancing the read performance of your database server. Replication does not necessarily improve write performance and can introduce latency for write operations, as changes need to be propagated to all replicas.
 
-## What is Database normalization?
+## What is database normalization?
 
 Database normalization is the process of organizing your data to reduce redundancy and improve data integrity.
 
 For example, a customer table for an ecommerce website is created with a field for customer addresses. Since a customer can have multiple billing and shipping addresses, we will introduce redundancy to the table, resulting in update anomalies. The solution would be to create a separate table for customer addresses.
 
-### Further reading(s)/learning
-- [Designing Data-Intersive Applications](https://www.amazon.de/-/en/Designing-Data-Intensive-Applications-Reliable-Maintainable/dp/1449373321)
+## Further resources
+- [Designing Data-Intensive Applications The Big Ideas Behind Reliable, Scalable, and Maintainable Systems](https://www.amazon.de/-/en/Designing-Data-Intensive-Applications-Reliable-Maintainable/dp/1449373321)
 - [System Design Primer](https://github.com/donnemartin/system-design-primer)
 - [Scalability Harvard Web Development](https://youtu.be/-W9F__D3oY4?si=5YY_dLx8k3lf8VTM) by David Malan

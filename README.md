@@ -14,4 +14,6 @@ This repository contains comprehensive documentation on web development and comp
 * [System Design](system-design.md)
 * [Security](security.md)
 * [Computing](computing.md)
+* [Backend](backend.md)
+* [Frontend](frontend.md)
 * [Misc](misc.md)
