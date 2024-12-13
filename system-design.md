@@ -335,7 +335,7 @@ Examples of NoSql databases include:
 - **MongoDB:** A document-based NoSQL database.
 - **CouchDB:** Another document-based NoSQL database that uses JSON for storing data.
 - **Redis:** A key-value store known for its in-memory data processing.
-- **etcd:** A key-value store commonly used in distributed systems for configuration management and service discovery.
+- **etcd:** A distributed key-value store commonly used in distributed systems for configuration management and service discovery.
 
 ## When should you use NoSQL or a relational database?
 
@@ -405,6 +405,39 @@ On the other hand, replication is better suited for achieving high availability 
 Database normalization is the process of organizing your data to reduce redundancy and improve data integrity.
 
 For example, a customer table for an ecommerce website is created with a field for customer addresses. Since a customer can have multiple billing and shipping addresses, we will introduce redundancy to the table, resulting in update anomalies. The solution would be to create a separate table for customer addresses.
+
+## Containerization and Virtual Machines
+Containerization is a method of packaging an application, including its dependencies (such as libraries, frameworks and tools), into a lightweight, portable unit that can run consistently across environments. Containers provide isolation to reduce the impact on the host machine, while still utilizing the host's kernel and resources.
+
+Virtual machines encapsulate an instance of an operating system, sharing the physical hardware and resources of the host machine through a hypervisor. While VMs provide strong isolation between systems, they still consume the host machine's physical resources. Unlike containers, which virtualize the operating system, VMs virtualize the underlying hardware.
+
+### Benefits of containers and VMs
+Containers are ideal for ensuring that applications run consistently across different environments. They allow developers to replicate development environments reliably, minimizing the risk of inconsistencies between development and production.
+
+Virtual machines provide stronger security that containers through full isolation of operating systems, making them suitable for scenarios requiring higher security. However, they are generally heavier than containers in terms of resource usage.
+
+### Further reading(s)
+- [What is a virtual machine?](https://cloud.google.com/learn/what-is-a-virtual-machine)
+- [Are virtual machines safe for end users?](https://www.techtarget.com/searchvirtualdesktop/answer/Are-virtual-machines-safe-for-end-users#:~:text=While%20VMs%20have%20certain%20security,to%20maintain%20vigilance%20regarding%20cybersecurity.)
+
+## Kubernetes
+
+Kubernetes is an orchestration platform for containers. It manages the deployments, scaling, and operations of containerized applications across a cluster of nodes.
+
+### Key components of Kubernetes
+- **Control panel:** Consists of several components to manage the Kubernetes cluster, including the kube-apiserver, etcd, kube-scheduler, controller-manager, and often the cloud-controller-manager. 
+  - **etcd:** a distributed key-value store for storing the entire cluster's state, including configuration data, metadata, and secrets.
+  - **API server (`kube-apiserver`):** It exposes the Kubernetes API, acting as a communication hub for all components. It also interacts with etcd to retrieve and store cluster state.
+  - **Scheduler (`kube-scheduler`):** Assigns pods to nodes based on resource availability and scheduling policies.
+  - **Controller Manager (`kube-controller-manager`):** Runs controllers to manage the state of the cluster, such as replication and endpoint controllers.
+- **Worker node:**  A worker node is a machine (virtual or physical) in the Kubernetes cluster that runs containerized applications. It includes components such as the container runtime (e.g., Docker, containerd), kubelet, and kube-proxy.
+  - **Pod:** Pods run on worker nodes and it represents a single instance of a running process in the cluster and can contain one or more tightly coupled containers that share the same network namespace and storage.
+  - **Kubelet:** An agent that runs on each node to ensure that the containers are running in a pod. It communicates with the API server to receive instructions and report back the status of the node
+  - **kube-proxy:** A network proxy and load balancer that routes traffic to the appropriate pods in a service. It manages networking rules on worker nodes to ensure communication between services, pods, and external clients.
+
+### Further readings(s)
+- [Kubernetes Components](https://kubernetes.io/docs/concepts/overview/components/)
+- [etcd in Kubernetes](https://www.armosec.io/glossary/etcd-kubernetes/#:~:text=etcd%20role%20in%20Kubernetes&text=The%20etcd%20stores%20all%20cluster,API%20to%20manage%20the%20clusters.)
 
 ## Further resources
 - [Designing Data-Intensive Applications The Big Ideas Behind Reliable, Scalable, and Maintainable Systems](https://www.amazon.de/-/en/Designing-Data-Intensive-Applications-Reliable-Maintainable/dp/1449373321)
