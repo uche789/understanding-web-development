@@ -136,6 +136,25 @@ Building solutions iteratively from smaller subproblems to larger ones.
 - [Real-world Use Cases of Dynamic Programming](https://hackernoon.com/real-world-use-cases-of-dynamic-programming)
 - [What is Dynamic Programming? Working, Algorithms, and Examples](https://www.spiceworks.com/tech/devops/articles/what-is-dynamic-programming/)
 
+## Soundness and Safety in Programming Languages
+
+Safety means that there is a guarantee that all operations will be performed on meaningful data. For example, a string cannot be added to a number while performing an additional, or we ensure that in division, the second argument cannot be zero.
+
+In an untyped language, a piece of data is not associated with any data types. There are two types of typed languages:
+- In **statically typed languages**, the programmer has to explicitly state the data type of a value. Examples of statically typed languages include Java, C# and C++.
+- In **dynamically typed languages**, the data type can be assigned during run-time checks.  Examples of dynamically typed languages include JavaScript, Python, and Ruby.
+
+A programming language is considered sound if a program passes static type checks at compile-time and guarantees the absence of type errors at runtime. Type soundness ensures that, for any given expression, its evaluated result will always conform to the static type assigned at compile-time.
+
+Examples of sound languages include Dart, C#, and Java. On the other hand, unsound languages such as TypeScript, JavaScript, Python, and C do not provide such guarantees, which can lead to type errors during runtime despite passing compile-time checks.
+
+The benefits of soundness include improved code readability, maintainability, and the early detection of type errors at compile-time, reducing potential bugs in production.
+
+In general, type-safety and type soundness are the extent to which a programming language will prevent type errors.
+
+- https://dart.dev/language/type-system
+- https://papl.cs.brown.edu/2015/safety-soundness.html
+
 ## Agile vs Scrum vs Waterfall vs Kanban
 
 TBP

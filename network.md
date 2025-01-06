@@ -177,7 +177,7 @@ Client can make conditional request to the server by passing the ETag in the `If
 ```http
 GET /images/logo.png HTTP/1.1
 Host: example.com
-If-None-Matc: 123456efg
+If-None-Match: 123456efg
 ```
 
 If the resource has not been modified, the server with return status code **304 Not Modified**, indicating that the client can use the cached resource.

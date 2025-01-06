@@ -63,7 +63,7 @@ Progressive rendering are techniques used to render display content as quickly a
 
 ## Virtual DOM
 
-The DOM is the object-based representation of the HTML document. The virtual DOM is an abstraction of the original DOM and is used to make frequent updates, which are later applied to the DOM in a more performant way.
+The DOM is the object-based representation of the HTML document, allowing scripts to access and manipulate its structure and content. The virtual DOM is an abstraction of the DOM and is used to make efficient updates to the DOM by batching changes and applying them to the DOM in a more performant manner. Modern-frameworks such as React use the Virtual DOM to re-render only the part of the DOM that has changed, improving performance and reducing unnecessary changes.
 
 ## Shadow DOM
 
@@ -93,21 +93,4 @@ The Shadow DOM api provides a way attach a hidden separated DOM to an element to
 ```
 
 The Shadow DOM can be used to create web components.
-
-## What are a few ways to improve the performance of a web page?
-
-- **Minify CSS, JavaScript, and HTML.**
-- **Use a Content Delivery Network (CDN).**
-- **Lazy-loading:** Lazy-load images only when they appear in the viewport. Lazy-loading components and Javascript libraries only when in use.
-- Reduce requests sent to the server: if you're using a modern web-framework such as Vue or React, consider using TanStack Query or Vue query to handle data-fetching, caching, synchronization and mutations.
-- **Compress images using image tools.** 
-- **Use less animations.**
-- **Enable browser caching:** you can configure your web application so that the browser will cache the files it receives from the server
-
-## How can I improve the accessibility of a website?
-- **Use Alt Text for Images:** Add descriptive alt attributes for all images. If the image is decorative and does not convey any meaning, the value of Alt should be empty.
-- **Keyboard Navigation:** Ensure all interactive elements (links, buttons, forms) are accessible via keyboard.
-- **Use ARIA Roles:** ARIA attributes help improve accessibility for assistive technologies. However, use semantic HTML instead ARIA attributes when possible.
-- **Color Contrast:** Test color contrast ratios to ensure text is readable for people with visual impairments. WebAIM provides a [color contract checker](https://webaim.org/resources/contrastchecker/).
-- **Use heading levels:** Use the correct hierachy for headings (h1-h6)
 

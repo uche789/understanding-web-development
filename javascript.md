@@ -194,4 +194,38 @@ if (map.has('key2')) {
 
 Javascript handles **key collisions** (two or more keys have the same hash value) implictly. This means that setting a new value for an existing key will override the old value. 
 
+## What is the difference between a weak and strong reference?
 
+A weak reference is a reference to an object that does not prevent the object from being garbage-collected, making it a crucial concept in memory management. `WeakSet` and `WeakMap` were introduced in the ES6 specification to leverage this concept for efficient memory handling and better management of object references.
+
+Example of creating a weak reference using WeakMap:
+
+```javascript
+const weakMap = new WeakMap();
+
+let person = {name: 'Jane Smith'};
+
+weakMap.set(person, true)
+
+console.log(weakMap) // prints WeakMap {{…} => true}
+
+person = null;
+
+console.log(weakMap)
+```
+
+When Javascript runs the garbage collector, the `obj` object will be removed, as well as the weak reference.
+
+On the contrary, a strong reference prevents an objected from being collected by the garbage collector
+
+Example of creating a strong reference:
+
+```javascript
+let person = {name: 'Jane Smith'}
+let persons = [person]
+person = null
+console.log(persons) // prints [{name: 'Jane Smith'}]
+console.log(person) // returns null
+```
+
+The object cannot be accessed via the `person` variable but is accessible in the `persons` array. 

@@ -88,3 +88,17 @@ class AClass {
   }
 }
 ```
+
+## Why is Typescript an unsound language?
+
+TypeScript is considered unsound because it allows type safety for certain operations that cannot be guaranteed at compile-time. For example, the `Event` type might be used to represent a MouseClick event, even though its exact runtime type cannot be strictly verified at compile-time.
+
+```typescript
+// this is unsound
+function handleMouseClickEvent(event: Event) {
+  // ...
+}
+```
+
+### Further reading
+- https://www.typescriptlang.org/docs/handbook/type-compatibility.html
