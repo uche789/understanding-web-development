@@ -43,24 +43,6 @@ Benefits of microservices include:
 - An **e-commerce application** could have separate microservices to handle authentication, orders, products, and fulfillment.
 - A **ride-sharing app** could have separate microservices for rider matching, payment processing, and ride tracking.
 
-## Message brokers
-
-Message brokers are middleware systems used in distributed systems to send, recieve and process information between applications or services. A message broker typically involves provider (node sending information) and consumers (node recieving information).
-
-Message brokers like RabbitMQ, Apache Kafka, Redis, or ActiveMQ help decouple systems, ensuring reliable and scalable communication in distributed architectures.
-
-Key functions of a message brokers include:
-- **Validation, storing, routing, and reliable delivery of a message** to the appropriate destination.
-- **Message Queuing:** Stores messages temporarily to ensure delivery, even if the consumer is unavailable or slow to process them.
-- **Load Balancing:** Distributes messages across multiple consumers to balance the workload.
-- **Publish/Subscribe model:** Supports sending messages to multiple consumers subscribed to a topic.
-
-Benefits of message brokers include:
-- **Decoupling:** Producers and consumers don’t need to know about each other’s implementation.
-- **Fault tolerance:** Ensures messages aren't lost if a consumer or producer fails temporarily
-- **Asynchronous Processing**
-- **Scalability:** Simplifies adding more producers or consumers.
-
 ## Client-server architecture
 
 Client-server architecture is a design model where tasks and services are partitioned between resource providers, called servers, and requesters, called clients.
