@@ -1,5 +1,24 @@
 # Database
 
+- [Database engine](#database-engine)
+- [Index](#index)
+- [What is a NoSql database?](#what-is-a-nosql-database)
+- [When should you use NoSQL or a relational database?](#when-should-you-use-nosql-or-a-relational-database)
+- [ACID  (atomicity, consistency, isolation, durability)](#acid-(atomicity,-consistency,-isolation,-durability))
+  - [Further reading(s)](#further-reading(s))
+- [SARGable (Search ARGument ABLE) queries](#sargable-(search-argument-able)-queries)
+- [Optimizing database queries](#optimizing-database-queries)
+  - [Further reference](#further-reference)
+- [Sharding](#sharding)
+  - [Example](#example)
+  - [Further reading(s)](#further-reading(s))
+- [When should you use sharding and replication?](#when-should-you-use-sharding-and-replication)
+- [Database normalization](#database-normalization)
+
+## Database engine
+
+## Index
+
 ## What is a NoSql database?
 
 NoSQL is a type of database that stores unstructured and semi-structured data in various formats, such as key-value pairs, documents, wide-column stores, or graphs.
@@ -77,7 +96,7 @@ Sharding is ideal for handling large volumes of data while ensuring fast query p
 
 On the other hand, replication is better suited for achieving high availability and enhancing the read performance of your database server. Replication does not necessarily improve write performance and can introduce latency for write operations, as changes need to be propagated to all replicas.
 
-## What is database normalization?
+## Database normalization
 
 Database normalization is the process of organizing your data to reduce redundancy and improve data integrity.
 

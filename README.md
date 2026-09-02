@@ -2,18 +2,17 @@
 
 ## Introduction
 
-This repository contains comprehensive documentation on web development and computing. The contents of this repository are aimed at both novice and experienced web developers.
+This repository is a living document with comprehensive explanation on core software development and programming concepts. The contents of this repository is aimed primarily at web developers.
 
 ## Table of contents
-* [Typescript](typescript.md)
-* [System Design](system-design.md)
+* [Backend System Design](system-design.md)
     * [Database](database.md)
     * [Network](network.md)
-* [Security](security.md)
-* [Computing](computing.md)
 * [Frontend](frontend.md)
     * [HTML](html.md)
     * [CSS](css.md)
     * [Javascript](javascript.md)
-* [Misc](misc.md)
+    * [Typescript](typescript.md)
+* [Security](security.md)
+* [Computing & Programming](computing.md)
 * [Acronymns](acronymn.md)

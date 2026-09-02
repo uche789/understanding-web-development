@@ -1,4 +1,4 @@
-# System Design
+# Backend System Design
 
 This page cover all topics related to system design.
 
@@ -271,8 +271,14 @@ While similar to NACK, REJECT instructs the consumer whether to discard of reque
 - **Manual-ACK:** The consumer explicitly signals that the message has been successfully processed. This guarantees at-least-once delivery.
 - **At-least-once delivery:** at least one attempt of processing a delivered messaged is successful.
 
-## OAuth
+## Authentication
 
-### Resources
+### JWT and JWS.
+
+JWT (JSON Web Token) is a standard to generate access tokens from credentials which a user uses to access a resource. JWS (JSON Web Signature) is a standard for digitally signing arbitrary data, forming the foundation for other web-based technologies like JWT (JSON Web Token)
+
+### OAuth
+
+#### Resources
 
 - [OAuth 2.0 and OpenID Connect (in plain English)](https://youtu.be/996OiexHze0?si=q3gn7bsBj-PjZIoQ)

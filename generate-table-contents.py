@@ -3,10 +3,11 @@ import io
 # To use this script, run it in the root of the project.
 # It will read the frontend.md file and generate a table of contents based on the headings in the file.
 # Command to run: python generate-table-contents.py
+# Copy and paste the generated 
 
-file_name = input("Enter the name of the markdown file (default: frontend.md): ") or "frontend.md"
+file_name = input("Enter the name of the markdown file without the extension (default: frontend): ") or "frontend"
 
-allLines = io.open('./' + file_name, 'r', encoding='utf-8').readlines();
+allLines = io.open('./' + file_name + '.md', 'r', encoding='utf-8').readlines();
 
 result=[]
 
@@ -33,9 +34,8 @@ allLines.clear()
 
 fileString = "";
 for r in result:
-    # clean_text = str(r['text']).replace('\s', '-').lower().replace('?', '');
-    clean_text = '-'.join((str(r['text']).replace('?', '').lower().split()));
-    text = '[' +  r['text'] + '](#' + clean_text + ')\n';
+    clean_text = '-'.join((str(r['text']).replace('?', '').replace('&', '-').lower().split()));
+    text = '[' +  r['text'] + '](#' + clean_text.replace('---', '--') + ')\n';
     element = r["element"];
 
     if element == 'h2':
@@ -45,5 +45,7 @@ for r in result:
     elif element == 'h4':
         fileString = fileString + '    - ' + text;
 
+print("----RESULT--------")
+print("Copy and past the result in your desired file: \n\n")
 print(fileString)
 # io.open('output-table-contents.md', 'w', encoding='utf-8').write(fileString);

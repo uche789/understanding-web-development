@@ -1,21 +1,48 @@
-# Typescript
+# TypeScript
 
-## Benefit of using Typescript
+- [Benefit of using TypeScript](#benefit-of-using-typescript)
+- [`interface` and `type`](#`interface`-and-`type`)
+- [enums or Object.freeze(object)](#enums-or-object.freeze(object))
+- [Access modifiers `public`, `private`, `protected`, and `readonly`](#access-modifiers-`public`,-`private`,-`protected`,-and-`readonly`)
+- [`abstract` keyword](#`abstract`-keyword)
+- [Difference between using an abstract class over an interface](#difference-between-using-an-abstract-class-over-an-interface)
+- [`static` keyword do](#`static`-keyword-do)
+- [Optional parameters using `?`](#optional-parameters-using-``)
+- [Symbols](#symbols)
+- [Decorator](#decorator)
+- [Why TypeScript an unsound language](#why-typescript-an-unsound-language)
+  - [Further reading](#further-reading)
+- [Generics](#generics)
+- [Overloaded functions](#overloaded-functions)
 
-Typescript is a superset of Javascript, meaning all the features of ECMAScript are available in Typescript. Typescript allows type-checking, which will reduce the risk of errors in larger projects.
+## Benefit of using TypeScript
+
+TypeScript is a superset of Javascript, meaning all the features of ECMAScript are available in TypeScript. TypeScript allows type-checking, which will reduce the risk of errors in larger projects.
+
+The [TypeScript handbook](https://www.typescriptlang.org/docs/handbook/intro.html) provides comprehensive explanations about TypeScript.
+
+## `interface` and `type`
+
+interface and type
+
+`type` allows more flexibility
+
+## enums or Object.freeze(object)
+
+the different types
 
 ## Access modifiers `public`, `private`, `protected`, and `readonly`
 
 * `public` - the property or method is only accessible internally or externally
 * `private` - the property or method is only accessible internally
 * `protected` - the property and method is accessed within the class and or any class that extends it 
-* `readonly` - the property cannot be reassigned after initialization. Typescript will throw a console error
+* `readonly` - the property cannot be reassigned after initialization. TypeScript will throw a console error
 
 ## `abstract` keyword
 
 The `abstract` keyword allows you to define a class with properties, methods and accessors with no implementation.
 
-```Typescript
+```TypeScript
 abstract class User {
   abstract doWork(): void;
 }
@@ -31,7 +58,7 @@ TBP
 
 This allows you
 
-```Typescript
+```TypeScript
 class Helper {
 
   key: string = '';
@@ -51,7 +78,7 @@ Helper.formatConfig();
 
 Note that you cannot access non-static properties and methods within a static method.
 
-```Typescript
+```TypeScript
 Helper.key //throws an error
 ```
 
@@ -59,7 +86,7 @@ Helper.key //throws an error
 
 `?` is used to mark the property as optional. 
 
-```Typescript
+```TypeScript
 interface Properties {
   id: string;
   name?: string;
@@ -70,7 +97,7 @@ interface Properties {
 
 Symbols are unique, immutable identifiers that can be used as object keys. 
 
-```Typescript
+```TypeScript
 const key = Symbol('id');
 const anObject = {};
 anObject[key] = 'aValue';
@@ -83,7 +110,7 @@ A decorator is a function that allows shorthand in-line modification of classes,
 * `key`: the name of the method
 * `descriptor`: the object descriptor for the method
 
-```Typescript
+```TypeScript
 class AClass {
   
   @Decorator
@@ -93,11 +120,11 @@ class AClass {
 }
 ```
 
-## Why is Typescript an unsound language?
+## Why TypeScript an unsound language
 
 TypeScript is considered unsound because it allows type safety for certain operations that cannot be guaranteed at compile-time. For example, the `Event` type might be used to represent a MouseClick event, even though its exact runtime type cannot be strictly verified at compile-time.
 
-```typescript
+```TypeScript
 // this is unsound
 function handleMouseClickEvent(event: Event) {
   // ...
@@ -105,15 +132,15 @@ function handleMouseClickEvent(event: Event) {
 ```
 
 ### Further reading
-- https://www.typescriptlang.org/docs/handbook/type-compatibility.html
+- https://www.TypeScriptlang.org/docs/handbook/type-compatibility.html
 
 ## Generics
 
 ## Overloaded functions
 
-Typescript allows overloaded functions, whereby a function can be called with different paramaters. 
+TypeScript allows overloaded functions, whereby a function can be called with different paramaters. 
 
-```typescript
+```TypeScript
 function getUser(firstname: string|number, lastname: string): User|undefined;
 function getUser(identifier: string|number): User|undefined;
 function getUser(identifier: string|number, firstname?: string, lastname?: string): User|undefined {

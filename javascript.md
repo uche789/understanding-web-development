@@ -1,6 +1,40 @@
 # Javascript
 
-## What does the `this` keyword refer to?
+- [The V8 engine?](#the-v8-engine)
+- [The `this` keyword](#the-`this`-keyword)
+- [Difference between `map()` and `forEach()`](#difference-between-`map()`-and-`foreach()`)
+- [`Array.reduce` method](#`array.reduce`-method)
+  - [Example](#example)
+- [Map vs Set](#map-vs-set)
+- [`const` vs `var` vs `let` variable declarations](#`const`-vs-`var`-vs-`let`-variable-declarations)
+- [Hoisting](#hoisting)
+- [AJAX request](#ajax-request)
+- [Promise](#promise)
+  - [Handling multiple Promises](#handling-multiple-promises)
+  - [`async`/`await`](#`async`/`await`)
+- [Event Loop](#event-loop)
+  - [How it works?](#how-it-works)
+  - [Further readings](#further-readings)
+- [Scoping](#scoping)
+- [Prototypal Inheritance](#prototypal-inheritance)
+- [Closures](#closures)
+- [Modules](#modules)
+  - [Further reading](#further-reading)
+- [Immutable and mutable object](#immutable-and-mutable-object)
+  - [Further Reading](#further-reading)
+- [Hashmaps in Javascript](#hashmaps-in-javascript)
+- [Weak and Strong Reference](#weak-and-strong-reference)
+- [Memory management](#memory-management)
+- [Resource management](#resource-management)
+- [Circular dependency and how can it be avoided](#circular-dependency-and-how-can-it-be-avoided)
+- [Memory leaks in Javascipt and how can it be avoided](#memory-leaks-in-javascipt-and-how-can-it-be-avoided)
+
+## The V8 engine?
+The V8 engine is built using C++ to execute JavaScript on a machine. It converts JavaScript into machine code using techniques like JIT compilation, which optimizes the execution of JavaScript for better performance.
+
+The V8 engine powers Google Chrome and Node.js, making it a critical component for web browsers and server-side JavaScript execution.
+
+## The `this` keyword
 
 The `this` keyword refers to the object it belongs to.
 - In a function, `this` refers to the global object.
@@ -9,11 +43,11 @@ The `this` keyword refers to the object it belongs to.
 - Methods like `call()` and `apply()` can refer this to any object.
 - The `bind()` method has its `this` keyword set to the provided value.
 
-## What is the difference between `map()` and `forEach()`?
+## Difference between `map()` and `forEach()`
 
 `map()` creates a new array with the results of the function called for every element in the given array. `forEach()` iterates over every element in a given array and does not return anything.
 
-## What does the array propery `reduce` do?
+## `Array.reduce` method
 
 `reduce()` executes a **reducer** callback on each value in an array and returns an accumulated value as the result. This is useful for operations related to aggregation and summation of data.
 
@@ -24,7 +58,9 @@ const initialValue = 0;
 const sum = [1, 4, 6, 7].reduce((accumulator, currentValue) => prev + cur, initialValue); // value = 18
 ```
 
-## What is the difference between `const`, `var` and `let` variable declarations?
+## Map vs Set
+
+## `const` vs `var` vs `let` variable declarations
 
 * `const` - the variable cannot be redefined and cannot be changed through reassigment
 
@@ -110,7 +146,7 @@ new Promise(function(resolve, reject) {
 })
 ```
 
-## Handling multiple Promises
+### Handling multiple Promises
 
 When running async operations concurrently, using the [`Promise.all`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) will execute all async operations independently to significantly reduce execution time. It will return a single promise that fulfills once all the promises passed as iterable have been fulfilled.
 
@@ -122,7 +158,7 @@ const results = Promise.all([promise1, promise2]).then(function (values) => {
 });
 ```
 
-## `async`/`await`
+### `async`/`await`
 
 `async`/`await` was introduced in ES7 to simplify promises and keep code readable. The `async` keyword indicates that a function will perform asynchronous operations, while the `await` keyword pauses the execution of the async function until the promise it’s waiting for is resolved.
 
@@ -138,101 +174,6 @@ async function aMethod() {
 ```
 
 `async`/`async` eliminates the need for promise chaining and nested callbacks.
-
-
-## Immutable and mutable object
-
-An immuntable object is a object whose state cannot be modified after it has been created. Strings and numbers are immutable. Functions, arrays, classes and objects are mutable.
-
-Immutability should not be confused with variables declared using the `const` keyword. The reference of the constant is immutable however, this does not mean that the value is immutable. Take the object below as an example:
-
-```javascript
-const anObject = {
-  prop: ''
-}
-```
-
-`anObject` cannot be redeclared or reassigned, however, we can change the value of `prop`. When an object is created, memory is allocated for it, and the variable `anObject` stores a reference to that object in memory.
-
-JavaScript automatically handles memory allocation and deallocation through garbage collection, which removes objects that are no longer referenced.
-
-### Further Reading
-
-- [Functional Programming in JS, part II - Immutability (Vanilla JS, Immutable.js and Immer)]https://dev.to/mpodlasin/functional-programming-in-js-part-ii-immutability-vanilla-js-immutable-js-and-immer-2ccm
-
-## What is the V8 engine?
-The V8 engine is built using C++ to execute JavaScript on a machine. It converts JavaScript into machine code using techniques like JIT compilation, which optimizes the execution of JavaScript for better performance.
-
-The V8 engine powers Google Chrome and Node.js, making it a critical component for web browsers and server-side JavaScript execution.
-
-## Hashmaps in Javascript
-
-A hashmap (also known as a an associative array or an object), is a key-value data structure. In Javascript, a hashmap can be created using an object literal `{}`.
-
-For example:
-
-```javascript
-let map = {};
-
-map['key1'] = 'value 1';
-map['key2'] = 'value 2';
-
-// delete a key-value pair
-delete map['key1']
-```
-
-The `Map` object can also be used.
-
-```javascript
-cosnt map = new Map();
-
-
-map.set('key1', 'value1');
-map.set('key2', 'value2');
-
-if (map.has('key2')) {
-  // delete a key-value pair
-  map.delete('key1')
-}
-```
-
-Javascript handles **key collisions** (two or more keys have the same hash value) implictly. This means that setting a new value for an existing key will override the old value. 
-
-## What is the difference between a weak and strong reference?
-
-A weak reference is a reference to an object that does not prevent the object from being garbage-collected, making it a crucial concept in memory management. `WeakSet` and `WeakMap` were introduced in the ES6 specification to leverage this concept for efficient memory handling and better management of object references.
-
-Example of creating a weak reference using WeakMap:
-
-```javascript
-const weakMap = new WeakMap();
-
-let person = {name: 'Jane Smith'};
-
-weakMap.set(person, true)
-
-console.log(weakMap) // prints WeakMap {{…} => true}
-
-person = null;
-
-console.log(weakMap)
-```
-
-When Javascript runs the garbage collector, the `obj` object will be removed, as well as the weak reference.
-
-On the contrary, a strong reference prevents an objected from being collected by the garbage collector
-
-Example of creating a strong reference:
-
-```javascript
-let person = {name: 'Jane Smith'}
-let persons = [person]
-person = null
-console.log(persons) // prints [{name: 'Jane Smith'}]
-console.log(person) // returns null
-```
-
-The object cannot be accessed via the `person` variable but is accessible in the `persons` array. 
 
 ## Event Loop
 
@@ -280,9 +221,115 @@ function sum(nums, even = false) {
 
 ## Modules
 
-
 ### Further reading
+
+## Immutable and mutable object
+
+An immuntable object is a object whose state cannot be modified after it has been created. Strings and numbers are immutable. Functions, arrays, classes and objects are mutable.
+
+Immutability should not be confused with variables declared using the `const` keyword. The reference of the constant is immutable however, this does not mean that the value is immutable. Take the object below as an example:
+
+```javascript
+const anObject = {
+  prop: ''
+}
+```
+
+`anObject` cannot be redeclared or reassigned, however, we can change the value of `prop`. When an object is created, memory is allocated for it, and the variable `anObject` stores a reference to that object in memory.
+
+JavaScript automatically handles memory allocation and deallocation through garbage collection, which removes objects that are no longer referenced.
+
+### Further Reading
+
+- [Functional Programming in JS, part II - Immutability (Vanilla JS, Immutable.js and Immer)]https://dev.to/mpodlasin/functional-programming-in-js-part-ii-immutability-vanilla-js-immutable-js-and-immer-2ccm
+
+## Hashmaps in Javascript
+
+A hashmap (also known as a an associative array or an object), is a key-value data structure. In Javascript, a hashmap can be created using an object literal `{}`.
+
+For example:
+
+```javascript
+let map = {};
+
+map['key1'] = 'value 1';
+map['key2'] = 'value 2';
+
+// delete a key-value pair
+delete map['key1']
+```
+
+The `Map` object can also be used.
+
+```javascript
+cosnt map = new Map();
+
+
+map.set('key1', 'value1');
+map.set('key2', 'value2');
+
+if (map.has('key2')) {
+  // delete a key-value pair
+  map.delete('key1')
+}
+```
+
+Javascript handles **key collisions** (two or more keys have the same hash value) implictly. This means that setting a new value for an existing key will override the old value. 
+
+## Weak and Strong Reference
+
+A weak reference is a reference to an object that does not prevent the object from being garbage-collected, making it a crucial concept in memory management. `WeakSet` and `WeakMap` were introduced in the ES6 specification to leverage this concept for efficient memory handling and better management of object references.
+
+Example of creating a weak reference using WeakMap:
+
+```javascript
+const weakMap = new WeakMap();
+
+let person = {name: 'Jane Smith'};
+
+weakMap.set(person, true)
+
+console.log(weakMap) // prints WeakMap {{…} => true}
+
+person = null;
+
+console.log(weakMap)
+```
+
+When Javascript runs the garbage collector, the `obj` object will be removed, as well as the weak reference.
+
+On the contrary, a strong reference prevents an objected from being collected by the garbage collector
+
+Example of creating a strong reference:
+
+```javascript
+let person = {name: 'Jane Smith'}
+let persons = [person]
+person = null
+console.log(persons) // prints [{name: 'Jane Smith'}]
+console.log(person) // returns null
+```
+
+The object cannot be accessed via the `person` variable but is accessible in the `persons` array. 
 
 ## Memory management
 
 ## Resource management
+
+## Circular dependency and how can it be avoided
+
+Circular dependencies occur when two or more modules (or components) reference each other, creating a loop. This can be avoided by decoupling shared code into its own module.
+
+Circular dependencies can be avoided by:
+- **Decoupling the code.** This means organizing the code into smaller, independent modules that don’t rely on each other in a circular fashion.
+- **Shared logic should be in a separate module**, which can then be used by other modules without causing circular references.
+
+## Memory leaks in Javascipt and how can it be avoided
+
+A memory leak occurs when memory that is no longer needed is not released, causing the global space to fill up with unreachable variables and functions that cannot be collected by the garbage collector.
+
+Memory leaks can be avoided by:
+- Defining variables within a closed scope ensures they are properly cleaned up when no longer needed.
+- Avoiding global variables that remain in memory unnecessarily.
+- Properly cleaning up event listeners, intervals, and timeouts that hold references to objects after they're no longer needed.
+- Weak references or WeakMaps can also help, especially when objects are no longer needed but still referenced.

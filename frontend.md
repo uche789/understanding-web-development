@@ -1,25 +1,29 @@
 # Frontend
 
 - [Frontend resources](#frontend-resources)
-- [What is a circular dependency and how can it be avoided?](#what-is-a-circular-dependency-and-how-can-it-be-avoided)
-- [What are memory leaks happen in Javascipt and how can it be avoided?](#what-are-memory-leaks-happen-in-javascipt-and-how-can-it-be-avoided)
-- [What are source maps?](#what-are-source-maps)
+- [Source maps?](#source-maps)
   - [References](#references)
-- [What are a few ways to improve the performance of a web page?](#what-are-a-few-ways-to-improve-the-performance-of-a-web-page)
-- [What is the difference between tree-shaking and code splitting?](#what-is-the-difference-between-tree-shaking-and-code-splitting)
-- [Web vitals](#web-vitals)
-- [What is lazy-loading?](#what-is-lazy-loading)
-- [How can I improve the accessibility of a website?](#how-can-i-improve-the-accessibility-of-a-website)
-- [How can you improve rendering performance in React?](#how-can-you-improve-rendering-performance-in-react)
-- [How can you improve rendering performance in Vue?](#how-can-you-improve-rendering-performance-in-vue)
-  - [Further reference](#further-reference)
+- [Accessiblity](#accessiblity)
+  - [Improve the accessibility of a website](#improve-the-accessibility-of-a-website)
+- [Frontend Performance](#frontend-performance)
+  - [The difference between tree-shaking and code splitting?](#the-difference-between-tree-shaking-and-code-splitting)
+  - [Web vitals](#web-vitals)
+  - [Lazy-loading](#lazy-loading)
+  - [Performance Checklist](#performance-checklist)
+  - [Improve rendering performance in React](#improve-rendering-performance-in-react)
+    - [Further reference](#further-reference)
+  - [Improve rendering performance in Vue](#improve-rendering-performance-in-vue)
+    - [Further reference](#further-reference)
+- [Frontend System Design](#frontend-system-design)
+  - [System design](#system-design)
+    - [Checklist](#checklist)
 - [Frontend Architecture](#frontend-architecture)
   - [Micro-frontends](#micro-frontends)
     - [Module Federaton](#module-federaton)
 - [App-Shell](#app-shell)
-- [Websockes](#websockes)
+- [Websockets](#websockets)
 - [Server-sent events](#server-sent-events)
-
+- [SSG vs SSR vs SPA](#ssg-vs-ssr-vs-spa)
 
 ## Frontend resources
 
@@ -37,26 +41,7 @@ For external resources, use the following:
 
 For system design topics, refer to the [System Design](system-design.md) page.
 
-## What is a circular dependency and how can it be avoided?
-
-Circular dependencies occur when two or more modules (or components) reference each other, creating a loop. This can be avoided by decoupling shared code into its own module.
-
-Circular dependencies can be avoided by:
-- **Decoupling the code.** This means organizing the code into smaller, independent modules that don’t rely on each other in a circular fashion.
-- **Shared logic should be in a separate module**, which can then be used by other modules without causing circular references.
-
-## What are memory leaks happen in Javascipt and how can it be avoided?
-
-A memory leak occurs when memory that is no longer needed is not released, causing the global space to fill up with unreachable variables and functions that cannot be collected by the garbage collector.
-
-Memory leaks can be avoided by:
-- Defining variables within a closed scope ensures they are properly cleaned up when no longer needed.
-- Avoiding global variables that remain in memory unnecessarily.
-- Properly cleaning up event listeners, intervals, and timeouts that hold references to objects after they're no longer needed.
-- Weak references or WeakMaps can also help, especially when objects are no longer needed but still referenced.
-
-
-## What are source maps?
+## Source maps?
 
 Source maps are supplementary JavaScript files that assist with debugging in production. To improve performance, it is common practice to minify assets. However, minification makes the code difficult to read and debug. Source maps make debugging easier and can be enabled using most frontend build tools. Source maps can be a double-edged sword because they expose your source code to the public, potentially revealing proprietary information or security vulnerabilities.
 
@@ -64,9 +49,40 @@ Source maps are supplementary JavaScript files that assist with debugging in pro
 
 https://web.dev/articles/source-maps
 
-## What are a few ways to improve the performance of a web page?
+## Accessiblity
 
+TBP
 
+### Improve the accessibility of a website
+- **Use Alt Text for Images:** Add descriptive alt attributes for all images. If the image is decorative and does not convey any meaning, the value of Alt should be empty.
+- **Keyboard Navigation:** Ensure all interactive elements (links, buttons, forms) are accessible via keyboard.
+- **Use ARIA Roles:** ARIA attributes help improve accessibility for assistive technologies. However, use semantic HTML instead ARIA attributes when possible.
+- **Color Contrast:** Test color contrast ratios to ensure text is readable for people with visual impairments. WebAIM provides a [color contract checker](https://webaim.org/resources/contrastchecker/).
+- **Use heading levels:** Use the correct hierachy for headings (h1-h6)
+- **Use assistive tools:** Use screen readers such as VoiceOver, ChromeVox, and NonVisual Desktop Access (NVDA) to understand how users with disabilities interact with your application. Additionally, use tools like [Axe devetools linter](https://www.deque.com/axe/devtools/linter/) to identify and fix accessibility issues in your codebase. Tools like Google Lighthouse can also audit your website’s accessibility, performance, and best practices, providing actionable insights to improve user experience.
+
+## Frontend Performance
+
+### The difference between tree-shaking and code splitting?
+
+Tree-shaking removes unused code from your bundle. Most modern bundlers (e.g., Vite, Rollup, Webpack) have tree-shaking configuration. Tree-shaking can also be achived by using ES modules (import/export) instead of CommonJS (require) for better tree-shaking compatibility and avoid using wildcard imports (e.g., import * as library), as they may include unnecessary modules.
+
+Code splitting splits codes into smaller chunks that can be loaded on demand. This can be acheived using [dynamic imports](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/import) for lazy loading and configuration in bundlers such as Vite's `build.rollupOptions.output.manualChunks` and Webpacks `SplitChunksPlugin`.
+
+### Web vitals
+
+Web vitals are metrics introduced by Google to check the performance of your website. There a four core web vitals:
+
+* **Largest Contentful Paint (LCP):** measures the time when the main content of a page is loaded. Good threshold is 2.5s or less.
+* **Interaction to Next Paint (INP):** measures responsiveness and visual update performances based on user interaction,. Good threshold is 200ms or less.
+* **First Contentful Paint (FCP):** measures the time when a page is first rendered to the DOM. Good threshold is 1.8 seconds or less.
+* **Cumilative Shift (CLS):** measures visual stability. Good threshold is 1.0 or less.
+
+### Lazy-loading
+
+Lazy-loading is an approach that loads content only when it becomes visible in the user's viewport, improving page load times and performance.
+
+### Performance Checklist
 
 - **Minify CSS, JavaScript, and HTML.**
 - **Use a Content Delivery Network (CDN).**
@@ -80,35 +96,9 @@ https://web.dev/articles/source-maps
 - **Use tools:** Chrome devTools (Performance insights tools, Web Vitals, Lighthouse Network tabes) can audit the performance of the webpage such as reflow and repaint issues.
 - **Use Google PageSpeed Insights:** [PageSpeed Insights](https://pagespeed.web.dev/) analyzes your website's performance and provides actionable recommendations to improve speed and user experience. It evaluates both mobile and desktop performance and assigns a score based on metrics like load time, interactivity, and visual stability.
 - **Remove unused CSS:** Unused CSS file size decreases your web performance or Speed. (Read more [here](https://medium.com/frontendweb/how-to-find-unused-css-in-the-website-54d773d76b65)).
+- **Use web workers**
 
-## What is the difference between tree-shaking and code splitting?
-
-Tree-shaking removes unused code from your bundle. Most modern bundlers (e.g., Vite, Rollup, Webpack) have tree-shaking configuration. Tree-shaking can also be achived by using ES modules (import/export) instead of CommonJS (require) for better tree-shaking compatibility and avoid using wildcard imports (e.g., import * as library), as they may include unnecessary modules.
-
-Code splitting splits codes into smaller chunks that can be loaded on demand. This can be acheived using [dynamic imports](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/import) for lazy loading and configuration in bundlers such as Vite's `build.rollupOptions.output.manualChunks` and Webpacks `SplitChunksPlugin`.
-
-## Web vitals
-
-Web vitals are metrics introduced by Google to check the performance of your website. There a four core web vitals:
-
-* **Largest Contentful Paint (LCP):** measures the time when the main content of a page is loaded. Good threshold is 2.5s or less.
-* **Interaction to Next Paint (INP):** measures responsiveness and visual update performances based on user interaction,. Good threshold is 200ms or less.
-* **First Contentful Paint (FCP):** measures the time when a page is first rendered to the DOM. Good threshold is 1.8 seconds or less.
-* **Cumilative Shift (CLS):** measures visual stability. Good threshold is 1.0 or less.
-
-## What is lazy-loading?
-
-Lazy-loading is an approach that loads content only when it becomes visible in the user's viewport, improving page load times and performance.
-
-## How can I improve the accessibility of a website?
-- **Use Alt Text for Images:** Add descriptive alt attributes for all images. If the image is decorative and does not convey any meaning, the value of Alt should be empty.
-- **Keyboard Navigation:** Ensure all interactive elements (links, buttons, forms) are accessible via keyboard.
-- **Use ARIA Roles:** ARIA attributes help improve accessibility for assistive technologies. However, use semantic HTML instead ARIA attributes when possible.
-- **Color Contrast:** Test color contrast ratios to ensure text is readable for people with visual impairments. WebAIM provides a [color contract checker](https://webaim.org/resources/contrastchecker/).
-- **Use heading levels:** Use the correct hierachy for headings (h1-h6)
-- **Use assistive tools:** Use screen readers such as VoiceOver, ChromeVox, and NonVisual Desktop Access (NVDA) to understand how users with disabilities interact with your application. Additionally, use tools like [Axe devetools linter](https://www.deque.com/axe/devtools/linter/) to identify and fix accessibility issues in your codebase. Tools like Google Lighthouse can also audit your website’s accessibility, performance, and best practices, providing actionable insights to improve user experience.
-
-## How can you improve rendering performance in React?
+### Improve rendering performance in React
  
 - Cache expensive calculations using `useMemo` and memoize functions with `useCallback` to maintain stable references (unless the dependencies change), preventing unnecessary recalculations and re-rendering.
 - Wrap functional components with `React.memo` to prevent re-renders if props haven’t changed.
@@ -118,7 +108,10 @@ Lazy-loading is an approach that loads content only when it becomes visible in t
 - Use a debounce function (e.g., with lodash) for expensive operations like search or scroll events. (e.g., `const search = useCallback(debounce(()=> {search(query)}, 280), [query])`).
 - Use className over inline styles, as inline styles can trigger recalculations.
 
-## How can you improve rendering performance in Vue?
+#### Further reference
+- https://blog.logrocket.com/a-complete-guide-to-react-performance-optimization/
+
+### Improve rendering performance in Vue
 
 - Use `computed` properties for expensive calculations.
 - Use the v-once directive to render static content only once.
@@ -132,10 +125,27 @@ Lazy-loading is an approach that loads content only when it becomes visible in t
 - Use `v-show` instead of `v-if` to conditionally render elements that toggle frequently.
 - Avoid inline styles and animations that affect layout or trigger reflows. Use class bindings for conditional styling.
 
-### Further reference
+#### Further reference
 - https://vuejs.org/guide/best-practices/performance
 
-## Frontend Architecture & System Design
+## Frontend System Design
+
+### System design
+
+What is FE system design about: https://www.greatfrontend.com/front-end-system-design-playbook/introduction
+
+#### Checklist
+- Gather requirements
+- Architecture: components, libraries, SSG vs SPA vs SSR
+- Application state: state manage
+- Data fetching
+- Server communication
+- Performance: Webvitals, minification of CSS & JS, tree-shaking, chunking, removing data/obsolete code,
+- SEO: valid HTML, URLs,
+- Reach: Accessiblity and internationalization
+- Testing: Unit tests, component test, e2e tests, smoke tests, visual regression testing
+
+## Frontend Architecture
 
 ### Micro-frontends
 
@@ -143,6 +153,10 @@ Lazy-loading is an approach that loads content only when it becomes visible in t
 
 ## App-Shell
 
-## Websockes
+## Websockets
 
 ## Server-sent events
+
+## SSG vs SSR vs SPA
+
+
