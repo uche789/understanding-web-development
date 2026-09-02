@@ -94,3 +94,6 @@ The Shadow DOM api provides a way attach a hidden separated DOM to an element to
 
 The Shadow DOM can be used to create web components.
 
+## Web components
+
+## Iframes

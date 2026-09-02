@@ -110,9 +110,9 @@ new Promise(function(resolve, reject) {
 })
 ```
 
-## Handling multiple Promises?
+## Handling multiple Promises
 
-The `Promise.all` function will return a single promise that fulfills once all the promises passed as iterable have been fulfilled.
+When running async operations concurrently, using the [`Promise.all`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) will execute all async operations independently to significantly reduce execution time. It will return a single promise that fulfills once all the promises passed as iterable have been fulfilled.
 
 ```javascript
 const promise1 = Promise.resolve(40);
@@ -137,7 +137,7 @@ async function aMethod() {
 }
 ```
 
-`async`/`async` eliminates the need for promise chaining or nested callbacks
+`async`/`async` eliminates the need for promise chaining and nested callbacks.
 
 
 ## Immutable and mutable object
@@ -155,6 +155,10 @@ const anObject = {
 `anObject` cannot be redeclared or reassigned, however, we can change the value of `prop`. When an object is created, memory is allocated for it, and the variable `anObject` stores a reference to that object in memory.
 
 JavaScript automatically handles memory allocation and deallocation through garbage collection, which removes objects that are no longer referenced.
+
+### Further Reading
+
+- [Functional Programming in JS, part II - Immutability (Vanilla JS, Immutable.js and Immer)]https://dev.to/mpodlasin/functional-programming-in-js-part-ii-immutability-vanilla-js-immutable-js-and-immer-2ccm
 
 ## What is the V8 engine?
 The V8 engine is built using C++ to execute JavaScript on a machine. It converts JavaScript into machine code using techniques like JIT compilation, which optimizes the execution of JavaScript for better performance.
@@ -229,3 +233,56 @@ console.log(person) // returns null
 ```
 
 The object cannot be accessed via the `person` variable but is accessible in the `persons` array. 
+
+## Event Loop
+
+Event loops manages the execution of code, and enables asynchronous programming in Javascript while being single-threaded.
+
+The event loop has the following components:
+
+* **Call stack:** 
+* **Background / Web APIs:** These handles async operations, such as browser features (e.g, `setTimeout`), DOM events, and HTTP requets. 
+* **Microtask queue:** A high-priority queue for promises and 
+* **Callback queue:**
+
+### How it works?
+
+1. It checks call stack to see if it's empty.
+2. If the call stack is empty, it checks the Microtask Queue and pushes tasks from the queue to the call stack until all the tasks are executed. 
+3. If there are no tasks in the Microtask Queue, it checks the Callback Queue and pushes the oldest task from the queue to the call stack.
+
+### Further readings
+- [The JavaScript Event Loop Explained with Examples](https://medium.com/@ignatovich.dm/the-javascript-event-loop-explained-with-examples-d8f7ddf0861d)
+- [JavaScript execution model](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Execution_model#job_queue_and_event_loop)
+- [Tasks vs. microtasks](https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API/Microtask_guide#tasks_vs._microtasks)
+
+## Scoping
+
+## Prototypal Inheritance
+
+Prototypal Inheritances is when a child object inherits the properties and methods of its parent.
+
+## Closures
+
+Closure gives a block of code access to its outer scope, also known as **lexical environment**.
+
+Examples:
+
+```javascript
+function sum(nums, even = false) {
+  function getOnlyEven() {
+    return nums.filter(num => num % 2 === 0);
+  }
+
+  return (even ? getOnlyEven() : nums).reduce((sum, curr) => sum + curr, 0);
+}
+```
+
+## Modules
+
+
+### Further reading
+
+## Memory management
+
+## Resource management

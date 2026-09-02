@@ -1,6 +1,6 @@
 # Typescript
 
-## Benefit of using Typescript over Javascript
+## Benefit of using Typescript
 
 Typescript is a superset of Javascript, meaning all the features of ECMAScript are available in Typescript. Typescript allows type-checking, which will reduce the risk of errors in larger projects.
 
@@ -20,6 +20,10 @@ abstract class User {
   abstract doWork(): void;
 }
 ```
+
+## Difference between using an abstract class over an interface
+
+TBP
 
 ## `static` keyword do
 
@@ -51,7 +55,7 @@ Note that you cannot access non-static properties and methods within a static me
 Helper.key //throws an error
 ```
 
-## Usuage of `?` in the definition of a property in the interface?
+## Optional parameters using `?`
 
 `?` is used to mark the property as optional. 
 
@@ -102,3 +106,17 @@ function handleMouseClickEvent(event: Event) {
 
 ### Further reading
 - https://www.typescriptlang.org/docs/handbook/type-compatibility.html
+
+## Generics
+
+## Overloaded functions
+
+Typescript allows overloaded functions, whereby a function can be called with different paramaters. 
+
+```typescript
+function getUser(firstname: string|number, lastname: string): User|undefined;
+function getUser(identifier: string|number): User|undefined;
+function getUser(identifier: string|number, firstname?: string, lastname?: string): User|undefined {
+  // do something
+}
+```

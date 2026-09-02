@@ -5,7 +5,7 @@ Let’s take a train and a train track as a simple example. A train can only run
 
 Threads is an execution context, which is the smallest set or sequence of instructions that a computer can manage. Threads share the same memory and resource with the same process, allowing for easier communication and data sharing.
 
-A thread should not be confused for a process, which is a program executed by a computer system. A process can have one or more threads executing instructions concurently and enabling multitasking within a single application (see the section on multithreading) and typically has its own resources and memory.
+A thread should not be confused for a process, which is a program executed by a computer system. A process can have one or more threads executing instructions concurrently and enabling multitasking within a single application (see the section on multithreading) and typically has its own resources and memory.
 
 ```python
 import threading
@@ -28,7 +28,7 @@ main()
 ## What is a thread pool?
 A railway company has a collection of trains and train tracks. A railway company will usually have more trains than tracks, so the trains need to run on a schedule. When a train is ready, it goes on an available track and once it reaches the end of its journey, it’s removed from the track and the track is then free for the next train. Instead of building new tracks, the company is reusing its tracks. Similarly, a thread pool manages pre-initialized threads, reusing them for multiple tasks.
 
-A proper definition of a thread pool is a collection of worker threads that efficiently execute asynchronous callbacks on behalf of the application. Thread pools reduce the number of frequent thread creation and destruction and thus, improving the performance of an application that needs to handle many tasks concurrently.
+A proper definition of a thread pool is a collection of worker threads that efficiently execute asynchronous callbacks on behalf of the application. Thread pools reduce the number of frequent thread creation and destruction and thus, improves the performance of an application that handles many tasks concurrently.
 
 ```python
 import threading

@@ -1,11 +1,39 @@
 # Frontend
 
+- [Frontend resources](#frontend-resources)
+- [What is a circular dependency and how can it be avoided?](#what-is-a-circular-dependency-and-how-can-it-be-avoided)
+- [What are memory leaks happen in Javascipt and how can it be avoided?](#what-are-memory-leaks-happen-in-javascipt-and-how-can-it-be-avoided)
+- [What are source maps?](#what-are-source-maps)
+  - [References](#references)
+- [What are a few ways to improve the performance of a web page?](#what-are-a-few-ways-to-improve-the-performance-of-a-web-page)
+- [What is the difference between tree-shaking and code splitting?](#what-is-the-difference-between-tree-shaking-and-code-splitting)
+- [Web vitals](#web-vitals)
+- [What is lazy-loading?](#what-is-lazy-loading)
+- [How can I improve the accessibility of a website?](#how-can-i-improve-the-accessibility-of-a-website)
+- [How can you improve rendering performance in React?](#how-can-you-improve-rendering-performance-in-react)
+- [How can you improve rendering performance in Vue?](#how-can-you-improve-rendering-performance-in-vue)
+  - [Further reference](#further-reference)
+- [Frontend Architecture](#frontend-architecture)
+  - [Micro-frontends](#micro-frontends)
+    - [Module Federaton](#module-federaton)
+- [App-Shell](#app-shell)
+- [Websockes](#websockes)
+- [Server-sent events](#server-sent-events)
+
+
+## Frontend resources
+
 This page covers general frontend-specific topics. The following pages also fall under frontend:
 
 - [CSS](css.md)
 - [HTML](html.md)
 - [Typescript](typescript.md)
 - [Javascript](javascript.md)
+
+For external resources, use the following:
+- [MDN JavaScript Guide](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide)
+- [TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/intro.html)
+
 
 For system design topics, refer to the [System Design](system-design.md) page.
 
@@ -36,11 +64,9 @@ Source maps are supplementary JavaScript files that assist with debugging in pro
 
 https://web.dev/articles/source-maps
 
-## Immutability
-
-https://dev.to/mpodlasin/functional-programming-in-js-part-ii-immutability-vanilla-js-immutable-js-and-immer-2ccm
-
 ## What are a few ways to improve the performance of a web page?
+
+
 
 - **Minify CSS, JavaScript, and HTML.**
 - **Use a Content Delivery Network (CDN).**
@@ -60,6 +86,15 @@ https://dev.to/mpodlasin/functional-programming-in-js-part-ii-immutability-vanil
 Tree-shaking removes unused code from your bundle. Most modern bundlers (e.g., Vite, Rollup, Webpack) have tree-shaking configuration. Tree-shaking can also be achived by using ES modules (import/export) instead of CommonJS (require) for better tree-shaking compatibility and avoid using wildcard imports (e.g., import * as library), as they may include unnecessary modules.
 
 Code splitting splits codes into smaller chunks that can be loaded on demand. This can be acheived using [dynamic imports](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/import) for lazy loading and configuration in bundlers such as Vite's `build.rollupOptions.output.manualChunks` and Webpacks `SplitChunksPlugin`.
+
+## Web vitals
+
+Web vitals are metrics introduced by Google to check the performance of your website. There a four core web vitals:
+
+* **Largest Contentful Paint (LCP):** measures the time when the main content of a page is loaded. Good threshold is 2.5s or less.
+* **Interaction to Next Paint (INP):** measures responsiveness and visual update performances based on user interaction,. Good threshold is 200ms or less.
+* **First Contentful Paint (FCP):** measures the time when a page is first rendered to the DOM. Good threshold is 1.8 seconds or less.
+* **Cumilative Shift (CLS):** measures visual stability. Good threshold is 1.0 or less.
 
 ## What is lazy-loading?
 
@@ -99,3 +134,15 @@ Lazy-loading is an approach that loads content only when it becomes visible in t
 
 ### Further reference
 - https://vuejs.org/guide/best-practices/performance
+
+## Frontend Architecture & System Design
+
+### Micro-frontends
+
+#### Module Federaton
+
+## App-Shell
+
+## Websockes
+
+## Server-sent events
